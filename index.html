@@ -1,0 +1,2675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>公关从业者知识库</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+/* ── ROOT ─────────────────────────────────────────── */
+:root {
+ --cream: #faf8f4; --cream2: #f4f0e8; --cream3: #ede8dc;
+ --ink: #1a1714; --ink2: #3d3830; --ink3: #6b6358;
+ --ink4: #9e9488; --ink5: #c8c0b4;
+ --rust: #c2440e; --rust-light: #f9eeea; --rust-mid: #e07048;
+ --gold: #8b6914; --gold-light: #fdf5e4;
+ --border: #e0d8cc; --border2: #ccc3b4;
+ --sidebar-w: 272px;
+ --shadow-sm: 0 1px 3px rgba(26,23,20,.06), 0 4px 12px rgba(26,23,20,.04);
+ --shadow: 0 4px 12px rgba(26,23,20,.08), 0 12px 32px rgba(26,23,20,.06);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Noto Sans SC',sans-serif;font-weight:300;font-size:14px;line-height:1.8;-webkit-font-smoothing:antialiased}
+
+/* ── PROGRESS + BACKTOP ───────────────────────────── */
+
+#backtop.show{opacity:1;transform:translateY(0)}
+#backtop:hover{background:var(--rust);transform:translateY(-3px) rotate(-12deg) scale(1.12)}
+
+/* ── SIDEBAR ─────────────────────────────────────── */
+#sidebar{position:fixed;top:0;left:0;width:var(--sidebar-w);height:100vh;background:#fff;border-right:1.5px solid var(--border);display:flex;flex-direction:column;z-index:100;overflow:hidden}
+.sb-brand{padding:22px 20px 16px;border-bottom:1px solid var(--border)}
+
+.sb-eye{font-family:'DM Mono',monospace;font-size:10px;color:var(--rust);letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px}
+.sb-title{font-family:'Noto Serif SC',serif;font-size:16px;font-weight:700;color:var(--ink);line-height:1.35}
+.sb-meta{display:flex;gap:6px;margin-top:8px}
+.sb-badge{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink4);background:var(--cream2);padding:2px 8px;border-radius:3px;letter-spacing:.06em}
+
+/* ── SEARCH ──────────────────────────────────────── */
+.sb-search{padding:12px 14px;border-bottom:1px solid var(--border);position:relative}
+.sb-search-box{display:flex;align-items:center;gap:8px;background:var(--cream);border:1.5px solid var(--border);border-radius:8px;padding:7px 11px;cursor:text;transition:border-color .2s,box-shadow .2s}
+.sb-search-box:focus-within{border-color:var(--rust);box-shadow:0 0 0 3px rgba(194,68,14,.08);background:#fff}
+.sb-search-icon{color:var(--ink4);font-size:14px;flex-shrink:0}
+#srch{border:none;background:transparent;color:var(--ink);font-family:'Noto Sans SC',sans-serif;font-size:12.5px;outline:none;width:100%}
+#srch::placeholder{color:var(--ink5)}
+#srch-x{cursor:pointer;color:var(--ink4);font-size:13px;display:none;flex-shrink:0;transition:color .15s;line-height:1}
+#srch-x:hover{color:var(--rust)}
+#srch-drop{display:none;position:absolute;top:calc(100% - 2px);left:14px;right:14px;background:#fff;border:1.5px solid var(--border);border-radius:8px;box-shadow:var(--shadow);max-height:260px;overflow-y:auto;z-index:300}
+.sr-item{padding:10px 13px;cursor:pointer;border-bottom:1px solid var(--border);transition:background .12s}
+.sr-item:last-child{border-bottom:none}
+.sr-item:hover,.sr-item.active{background:var(--cream)}
+.sr-item:hover .sr-t,.sr-item.active .sr-t{color:var(--rust)}
+.sr-ch{font-family:'DM Mono',monospace;font-size:9.5px;color:var(--rust);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
+.sr-t{font-size:12.5px;color:var(--ink2);line-height:1.4;transition:color .12s}
+.sr-empty{padding:18px 14px;text-align:center;color:var(--ink4);font-size:12px}
+.sr-snip{font-size:11.5px;color:var(--ink4);margin-top:3px;line-height:1.5}
+.sr-snip mark,.sr-t mark{background:rgba(194,68,14,.15);color:var(--rust);border-radius:2px;padding:0 1px;font-style:normal}
+.sr-item.kbd{background:var(--cream)}
+.sr-item.kbd .sr-t{color:var(--rust)}
+
+/* ── NAV ─────────────────────────────────────────── */
+#nav-scroll{flex:1;overflow-y:auto;padding:8px 0 20px;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.nav-group{padding:10px 20px 4px;font-family:'DM Mono',monospace;font-size:9.5px;color:var(--ink5);letter-spacing:.14em;text-transform:uppercase}
+
+.nav-a:hover{color:var(--ink);background:var(--cream);border-left-color:var(--border2)}
+.nav-a.active{color:var(--rust);background:var(--rust-light);border-left-color:var(--rust);font-weight:500;;overflow:hidden}
+.nav-icon{font-size:13px;flex-shrink:0;width:18px;text-align:center}
+.nav-n{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink5);flex-shrink:0;transition:color .15s}
+.nav-a.active .nav-n{color:var(--rust);opacity:.55}
+.nav-a:hover .nav-n{color:var(--ink4)}
+.sb-foot{padding:12px 20px;border-top:1px solid var(--border);font-family:'DM Mono',monospace;font-size:10px;color:var(--ink5);line-height:1.65}
+
+/* ── TOPBAR ──────────────────────────────────────── */
+#topbar{position:sticky;top:0;background:rgba(250,248,244,.93);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 52px;height:52px;display:flex;align-items:center;justify-content:space-between;z-index:50}
+#bc{display:flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink4)}
+#bc .sep{color:var(--ink5)}
+#bc .cur{color:var(--ink2);font-weight:500}
+.pills{display:flex;gap:6px}
+
+.pill:hover{border-color:var(--rust);color:var(--rust);background:var(--rust-light);;transform:translateY(-2px)}
+.pill.on{background:var(--rust);border-color:var(--rust);color:#fff;;animation:pillOn .28s cubic-bezier(.34,1.56,.64,1)}
+
+/* ── MAIN ────────────────────────────────────────── */
+#main{margin-left:var(--sidebar-w);min-height:100vh}
+
+/* ── HERO ────────────────────────────────────────── */
+#hero{padding:56px 56px 44px;background:linear-gradient(135deg,#fff 0%,var(--cream) 100%);border-bottom:1.5px solid var(--border);position:relative;overflow:hidden}
+#hero::after{content:'PR';position:absolute;right:-10px;top:-10px;font-family:'Noto Serif SC',serif;font-size:220px;font-weight:900;color:rgba(194,68,14,.03);line-height:1;pointer-events:none;user-select:none}
+
+.h-eye::before{content:'';display:block;width:24px;height:1.5px;background:var(--rust)}
+.h-h1{font-family:'Noto Serif SC',serif;font-size:44px;font-weight:700;line-height:1.15;color:var(--ink);margin-bottom:16px;letter-spacing:-.01em;animation:heroUp .7s cubic-bezier(.22,1,.36,1) .1s both}
+.h-h1 em{font-style:normal;color:var(--rust)}
+.h-desc{font-size:14px;color:var(--ink3);max-width:520px;line-height:1.9;margin-bottom:32px;;animation:heroUp .7s cubic-bezier(.22,1,.36,1) .22s both}
+.h-stats{
+ display:flex;border:1.5px solid var(--border);border-radius:10px;background:#fff;overflow:hidden;max-width:360px;box-shadow:var(--shadow-sm);margin-bottom:28px;
+ animation:statPop .55s cubic-bezier(.34,1.56,.64,1) .38s both
+}
+.h-stat{flex:1;padding:14px 12px;border-right:1px solid var(--border);text-align:center;transition:background .2s;animation:statPop .5s cubic-bezier(.34,1.56,.64,1) both;cursor:default}
+.h-stat:last-child{border-right:none}
+.h-stat-icon{font-size:18px;line-height:1;margin-bottom:4px}
+.h-stat-n{font-family:'Noto Serif SC',serif;font-size:22px;font-weight:700;color:var(--rust);line-height:1;margin-bottom:2px;;transition:color .2s}
+.h-stat-l{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink4);letter-spacing:.08em}
+
+/* Hero chapter quick-nav grid */
+.h-ch-grid{
+ display:grid;grid-template-columns:repeat(4,1fr);gap:7px;max-width:740px;
+ animation:heroUp .5s cubic-bezier(.22,1,.36,1) .55s both
+}
+
+.h-ch-item:hover{
+ background:#fff;border-color:var(--rust);transform:translateY(-1px);box-shadow:var(--shadow-sm);;transform:translateY(-2px);box-shadow:0 6px 18px rgba(194,68,14,.12);
+ transition:transform .18s cubic-bezier(.34,1.56,.64,1),border-color .15s,box-shadow .15s
+}
+.h-ch-em{font-size:16px;flex-shrink:0;line-height:1}
+.h-ch-t{font-size:11px;color:var(--ink2);line-height:1.3}
+
+/* ── CONTENT ─────────────────────────────────────── */
+#content{padding:0 56px 100px}
+
+/* ── CHAPTER ─────────────────────────────────────── */
+.chapter{padding-top:68px;opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+.chapter.vis{opacity:1;transform:translateY(0)}
+
+/* Chapter banner */
+
+.ch-banner::after{content:attr(data-num);position:absolute;right:-4px;bottom:-20px;font-family:'Noto Serif SC',serif;font-size:88px;font-weight:900;line-height:1;pointer-events:none;user-select:none;opacity:.1;color:#fff}
+.ch-icon-big{
+ font-size:44px;flex-shrink:0;line-height:1;animation:iconFloat 4s ease-in-out infinite;
+ display:inline-block
+}
+.ch-banner-text{}
+.ch-banner .ch-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-bottom:3px;display:block;color:#fff}
+.ch-banner .ch-title{font-family:'Noto Serif SC',serif;font-size:22px;font-weight:700;line-height:1.2;color:#fff}
+.ch-banner .ch-sub{font-size:12px;margin-top:5px;opacity:.7;line-height:1.5;color:#fff}
+/* Banner color themes */
+.ch-b1{background:linear-gradient(135deg,#1a3a5c,#2d6a9f)}
+.ch-b2{background:linear-gradient(135deg,#6b1a1a,#b83232)}
+.ch-b3{background:linear-gradient(135deg,#3a1a5a,#7c44a8)}
+.ch-b4{background:linear-gradient(135deg,#0d4a3a,#1a8c6a)}
+.ch-b5{background:linear-gradient(135deg,#5c3d0a,#b87c20)}
+.ch-b6{background:linear-gradient(135deg,#1f3a1f,#3d7a3d)}
+.ch-b7{background:linear-gradient(135deg,#1a2a4a,#2a5080)}
+.ch-b8{background:linear-gradient(135deg,#3a1a3a,#7a3080)}
+.ch-b9{background:linear-gradient(135deg,#2a1a0a,#7a4a10)}
+.ch-b10{background:linear-gradient(135deg,#1a1a2a,#3a3a5a)}
+.ch-b11{background:linear-gradient(135deg,#c2440e,#e07048)}
+.ch-b12{background:linear-gradient(135deg,#1a3a2a,#2d6a4a)}
+
+/* ── SECTION ─────────────────────────────────────── */
+
+.prose{font-size:14px;color:var(--ink2);line-height:1.95;max-width:740px}
+.prose+.prose{margin-top:12px}
+.prose strong{color:var(--ink);font-weight:500}
+
+/* ── CALLOUT ─────────────────────────────────────── */
+.callout{
+ border-radius:10px;padding:15px 18px;margin:16px 0;max-width:740px;border-width:1px;border-style:solid;display:flex;gap:13px;align-items:flex-start;
+ transition:box-shadow .2s,transform .2s
+}
+.callout.gold{background:var(--gold-light);border-color:#d4b86a}
+.callout.red{background:var(--rust-light);border-color:#e8b4a0}
+.callout.blue{background:#eef4fb;border-color:#a0c0dc}
+.callout.green{background:#edf7f0;border-color:#80caa0}
+.callout-icon{font-size:18px;flex-shrink:0;line-height:1;margin-top:2px}
+.callout-content{flex:1;min-width:0}
+.c-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.callout.gold .c-label{color:var(--gold)}
+.callout.red .c-label{color:var(--rust)}
+.callout.blue .c-label{color:#2874a6}
+.callout.green .c-label{color:#1d7a45}
+.c-body{font-size:13.5px;color:var(--ink2);line-height:1.85}
+.c-body strong{color:var(--ink);font-weight:500}
+
+/* ── LIST ────────────────────────────────────────── */
+.slist{list-style:none;max-width:740px;margin-top:10px}
+.slist li{font-size:13.5px;color:var(--ink2);line-height:1.85;padding:9px 0 9px 22px;border-bottom:1px solid var(--cream3);position:relative}
+.slist li:first-child{border-top:1px solid var(--cream3)}
+.slist li::before{content:'▸';position:absolute;left:0;color:var(--rust);font-size:10px;top:12px}
+.slist li strong{color:var(--ink);font-weight:500}
+
+/* ── CARDS ───────────────────────────────────────── */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:13px;margin-top:18px;max-width:960px}
+/* Card = 3-layer: outer border, colored top strip, body with padding */
+.card{background:#fff;border:1.5px solid var(--border);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .22s,box-shadow .25s,transform .25s cubic-bezier(.22,1,.36,1);cursor:default}
+.card:hover{border-color:var(--rust);box-shadow:var(--shadow);transform:translateY(-2px);;transform:translateY(-5px) scale(1.013);box-shadow:0 10px 32px rgba(194,68,14,.14),0 2px 8px rgba(26,23,20,.07);border-color:var(--rust)}
+.card-top{height:4px;background:var(--rust);flex-shrink:0}
+.card-body{padding:18px 20px 20px;flex:1}
+.c-label2{font-family:'DM Mono',monospace;font-size:9.5px;color:var(--rust);letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px}
+.c-title{font-family:'Noto Serif SC',serif;font-size:14px;font-weight:600;color:var(--ink);margin-bottom:8px;line-height:1.35}
+.c-body2{font-size:12.5px;color:var(--ink3);line-height:1.8}
+.c-body2 strong{color:var(--ink2);font-weight:500}
+
+/* ── TABLE ───────────────────────────────────────── */
+.tbl-wrap{overflow-x:auto;max-width:820px;margin-top:14px;border-radius:8px;border:1.5px solid var(--border);box-shadow:var(--shadow-sm)}
+table.tbl{width:100%;border-collapse:collapse;font-size:13px;background:#fff}
+.tbl thead tr{background:var(--cream2);border-bottom:1.5px solid var(--border)}
+.tbl th{padding:10px 15px;text-align:left;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--gold);font-weight:400;white-space:nowrap}
+.tbl td{padding:11px 15px;color:var(--ink2);border-bottom:1px solid var(--cream3);line-height:1.65;vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tbody tr{transition:background .13s,transform .15s}
+.tbl tbody tr:hover td{background:var(--cream)}
+
+/* ── ACCORDION ───────────────────────────────────── */
+.acc{max-width:740px;border:1.5px solid var(--border);border-radius:10px;overflow:hidden;margin-top:14px;background:#fff}
+.acc-item{border-bottom:1px solid var(--border)}
+.acc-item:last-child{border-bottom:none}
+.acc-hd{padding:13px 18px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:background .15s;user-select:none;border-left:3px solid transparent}
+.acc-hd:hover{
+ background:var(--cream);
+ border-left-color:var(--border2)
+}
+.acc-hd.open{background:var(--rust-light);border-left-color:var(--rust)}
+.acc-t{font-size:13.5px;font-weight:500;color:var(--ink);line-height:1.4}
+.acc-hd.open .acc-t{color:var(--rust)}
+.acc-ic{font-size:20px;color:var(--ink4);transition:transform .25s;flex-shrink:0;line-height:1;font-weight:300;font-family:monospace}
+.acc-hd.open .acc-ic{transform:rotate(45deg);color:var(--rust)}
+.acc-bd{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1),opacity .3s ease;opacity:0}
+.acc-bd.open{max-height:800px;;opacity:1}
+
+.acc-cnt strong{color:var(--ink);font-weight:500}
+
+/* ── QUICK REF ───────────────────────────────────── */
+.qr{background:#fff;border:1.5px solid var(--border);border-radius:10px;overflow:hidden;max-width:820px;box-shadow:var(--shadow-sm);margin-top:18px}
+.qr-head{padding:14px 26px;background:var(--ink);display:flex;align-items:center;gap:14px}
+/* qr-dot replaced by qr-win-dot */
+.qr-head-t{font-family:'DM Mono',monospace;font-size:11px;color:#fff;letter-spacing:.16em;text-transform:uppercase}
+.qr-row{display:grid;grid-template-columns:130px 1fr;border-bottom:1px solid var(--border);transition:background .15s,transform .18s}
+.qr-row:last-child{border-bottom:none}
+.qr-row:hover{background:var(--cream);;transform:translateX(5px)}
+.qr-k{padding:13px 14px 13px 26px;font-weight:500;font-size:13px;color:var(--rust);border-right:1px solid var(--border);background:var(--cream);display:flex;align-items:center;gap:4px}
+.qr-v{padding:13px 18px;font-size:13px;color:var(--ink2);line-height:1.75}
+.qr-v strong{color:var(--ink);font-weight:500}
+
+/* ── CONTACT CARD ────────────────────────────────── */
+
+.contact-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1a3a5c,#2d6a9f);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.contact-name{font-family:'Noto Serif SC',serif;font-size:15px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.contact-role{font-size:11.5px;color:var(--ink4);margin-bottom:8px;font-family:'DM Mono',monospace;letter-spacing:.04em}
+.contact-line{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink2);margin-bottom:3px}
+.contact-line a{color:var(--rust);text-decoration:none}
+.contact-line a:hover{text-decoration:underline}
+.contact-icon{font-size:13px;flex-shrink:0}
+
+/* ── HERO CHAPTER GRID ───────────────────────────── */
+@media(max-width:900px){
+ :root{--sidebar-w:0px}
+ #sidebar{display:none}
+ #main{margin-left:0}
+ #content,#hero{padding-left:20px;padding-right:20px}
+ #topbar{padding:0 20px}
+ .h-h1{font-size:28px}
+ .cards{grid-template-columns:1fr 1fr}
+ #backtop{
+ position:fixed;
+ bottom:32px;
+ right:32px;
+ width:44px;
+ height:44px;
+ background:var(--ink);
+ color:#fff;
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ cursor:pointer;
+ font-size:18px;
+ opacity:0;
+ transform:translateY(12px);
+ transition:opacity .25s,transform .3s cubic-bezier(.34,1.56,.64,1),background .2s;
+ z-index:200;
+ box-shadow:var(--shadow);
+ user-select:none;
+ border:none
+}
+ .qr-row{grid-template-columns:100px 1fr}
+ .ch-banner{
+ display:flex;
+ align-items:center;
+ gap:24px;
+ padding:24px 28px;
+ border-radius:14px;
+ margin-bottom:40px;
+ position:relative;
+ overflow:hidden;
+ box-shadow:var(--shadow);
+ transition:box-shadow .3s,transform .3s;
+ cursor:default;
+ flex-direction:column
+}
+ .h-ch-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:540px){
+ .cards{grid-template-columns:1fr}
+ .h-ch-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ── EXTRAS ──────────────────────────────────────── */
+
+/* Filter pill icons */
+.pill-icon{font-size:13px;line-height:1}
+
+/* QR table icon in key cell */
+.qr-icon{font-size:15px;margin-right:6px;flex-shrink:0}
+
+/* QR head accent dot group */
+.qr-dots{display:flex;gap:5px;align-items:center}
+.qr-dot{width:8px;height:8px;border-radius:50%;background:var(--rust-mid);flex-shrink:0}
+.qr-dot2{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);flex-shrink:0}
+
+/* Section separator — thin decorative rule between secs */
+.sec-sep{height:1px;background:linear-gradient(90deg,var(--border),transparent);max-width:740px;margin:-24px 0 48px}
+
+/* Table first-column accent */
+.tbl td:first-child{color:var(--ink);font-weight:500}
+
+/* Book card spine — thick left border as book spine */
+
+.book-spine{width:6px;flex-shrink:0;background:var(--rust)}
+.book-inner{padding:14px 16px;flex:1}
+.book-cat{font-family:'DM Mono',monospace;font-size:9px;color:var(--ink4);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.book-title{font-family:'Noto Serif SC',serif;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:5px;line-height:1.3}
+.book-desc{font-size:11.5px;color:var(--ink3);line-height:1.7}
+
+/* Chapter end divider */
+
+/* Highlighted table rows (alt) */
+.tbl tbody tr:nth-child(even) td{background:rgba(250,248,244,.6)}
+.tbl tbody tr:nth-child(even):hover td{background:var(--cream)}
+
+/* QR head with 3 dots (Mac window style) */
+.qr-win-dots{display:flex;gap:5px;align-items:center;flex-shrink:0}
+.qr-win-dot{width:9px;height:9px;border-radius:50%}
+
+.qr-win-dot.y{
+ background:#febc2e;
+ animation:dotPulse 3s ease-in-out .4s infinite
+}
+.qr-win-dot.g{
+ background:#28c840;
+ animation:dotPulse 3s ease-in-out .8s infinite
+}
+
+/* Chapter color line at very top of chapter (above banner) */
+.chapter::before{content:'';display:block;height:3px;width:60px;border-radius:2px;margin-bottom:20px;background:var(--rust);opacity:.4}
+
+/* ── ANIMATIONS ──────────────────────────────────── */
+@keyframes progShimmer{0%{background-position:100% 0}100%{background-position:-200% 0}}
+@keyframes iconFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes heroUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes statPop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+@keyframes gridUp{from{opacity:0;transform:translateY(14px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes calloutIn{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:translateX(0)}}
+@keyframes brandBounce{from{transform:scale(.4) rotate(-20deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+@keyframes navDot{0%,100%{opacity:1;height:55%}50%{opacity:.4;height:35%}}
+@keyframes pillOn{0%{transform:scale(.9)}60%{transform:scale(1.07)}100%{transform:scale(1)}}
+@keyframes secIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cardIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes tableRowIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
+@keyframes bannerIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes lineGrow{from{width:0}to{width:56px}}
+@keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+@keyframes dotPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
+@keyframes accOpen{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spinOnce{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes countUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+/* Keyframes */
+@keyframes progShimmer{0%{background-position:100% 0}100%{background-position:-200% 0}}
+/* ── HERO ENTRANCE ── */
+.h-eye{
+ display:inline-flex;
+ align-items:center;
+ gap:10px;
+ font-family:'DM Mono',monospace;
+ font-size:11px;
+ color:var(--rust);
+ letter-spacing:.16em;
+ text-transform:uppercase;
+ margin-bottom:16px;
+ animation:heroUp .55s cubic-bezier(.22,1,.36,1) .05s both
+}
+.h-stat:nth-child(1){animation:statPop .45s cubic-bezier(.34,1.56,.64,1) .42s both}
+.h-stat:nth-child(2){animation:statPop .45s cubic-bezier(.34,1.56,.64,1) .55s both}
+.h-stat:nth-child(3){animation:statPop .45s cubic-bezier(.34,1.56,.64,1) .68s both}
+.h-stat:hover{background:var(--cream2);transition:background .18s}
+.h-stat:hover .h-stat-n{color:var(--rust-mid);transition:color .18s}
+/* Hero chapter grid stagger */
+.h-ch-item{
+ background:rgba(255,255,255,.75);
+ border:1px solid var(--border);
+ border-radius:8px;
+ padding:9px 11px;
+ cursor:pointer;
+ transition:background .18s,border-color .18s,transform .2s,box-shadow .2s;
+ display:flex;
+ align-items:center;
+ gap:8px;
+ position:relative;
+ overflow:hidden;
+ animation:gridUp .4s cubic-bezier(.22,1,.36,1) both
+}
+.h-ch-item:nth-child(1){animation-delay:.60s}
+.h-ch-item:nth-child(2){animation-delay:.65s}
+.h-ch-item:nth-child(3){animation-delay:.70s}
+.h-ch-item:nth-child(4){animation-delay:.75s}
+.h-ch-item:nth-child(5){animation-delay:.80s}
+.h-ch-item:nth-child(6){animation-delay:.85s}
+.h-ch-item:nth-child(7){animation-delay:.90s}
+.h-ch-item:nth-child(8){animation-delay:.95s}
+.h-ch-item:nth-child(9){animation-delay:1.00s}
+.h-ch-item:nth-child(10){animation-delay:1.05s}
+.h-ch-item:nth-child(11){animation-delay:1.10s}
+.h-ch-item:nth-child(12){animation-delay:1.15s}
+/* Ripple on grid items */
+.h-ch-item::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(194,68,14,.18) 0%,transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
+.h-ch-item:hover::after{opacity:1}
+/* ── SIDEBAR ── */
+.sb-brand-icon{
+ font-size:26px;
+ line-height:1;
+ margin-bottom:8px;
+ display:inline-block;
+ animation:brandBounce .65s cubic-bezier(.34,1.56,.64,1) .2s both
+}
+/* Nav active pulsing dot */
+.nav-a{
+ display:flex;
+ align-items:center;
+ gap:8px;
+ padding:7px 14px 7px 20px;
+ font-size:12px;
+ color:var(--ink3);
+ text-decoration:none;
+ cursor:pointer;
+ transition:color .15s,background .15s,border-left-color .15s,padding-left .18s;
+ border-left:2.5px solid transparent;
+ line-height:1.45;
+ user-select:none;
+ position:relative
+}
+.nav-a.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:2.5px;height:55%;background:var(--rust);border-radius:0 2px 2px 0;animation:navDot 2.2s ease-in-out infinite}
+/* ── PROGRESS BAR SHIMMER ── */
+#prog{
+ position:fixed;
+ top:0;
+ left:0;
+ height:3px;
+ width:0%;
+ background:linear-gradient(90deg,var(--rust),var(--rust-mid),#f0a060,var(--rust));
+ background-size:300% 100%;
+ z-index:999;
+ transition:width .1s linear;
+ animation:progShimmer 2.5s linear infinite;
+ box-shadow:0 0 8px rgba(194,68,14,.4)
+}
+/* ── CHAPTER BANNER ── */
+.ch-banner{transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s}
+.ch-banner:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.3)}
+.ch-banner.anim-in{animation:bannerIn .6s cubic-bezier(.22,1,.36,1) both}
+/* ── SECTION REVEAL ── */
+.sec{
+ margin-bottom:48px;
+ opacity:0;
+ transform:translateY(20px);
+ transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)
+}
+.sec.sec-vis{opacity:1;transform:translateY(0)}
+.sec:nth-child(1){transition-delay:.04s}
+.sec:nth-child(2){transition-delay:.10s}
+.sec:nth-child(3){transition-delay:.16s}
+.sec:nth-child(4){transition-delay:.22s}
+.sec:nth-child(5){transition-delay:.28s}
+.sec:nth-child(6){transition-delay:.34s}
+.sec:nth-child(7){transition-delay:.40s}
+.sec:nth-child(8){transition-delay:.46s}
+/* ── SECTION TITLE ── */
+.sec-title{
+ font-family:'Noto Serif SC',serif;
+ font-size:15.5px;
+ font-weight:600;
+ color:var(--ink);
+ margin-bottom:16px;
+ padding-left:13px;
+ border-left:3px solid var(--rust);
+ line-height:1.5;
+ display:flex;
+ align-items:center;
+ gap:7px;
+ position:relative
+}
+.sec-title::after{content:'';position:absolute;bottom:-3px;left:14px;width:0;height:1.5px;background:var(--rust);opacity:.4;transition:width .55s cubic-bezier(.22,1,.36,1) .25s}
+.sec-vis .sec-title::after{width:56px}
+/* ── CALLOUTS ── */
+.sec-vis .callout{animation:calloutIn .45s cubic-bezier(.22,1,.36,1) both}
+.sec-vis .callout:nth-of-type(1){animation-delay:.12s}
+.sec-vis .callout:nth-of-type(2){animation-delay:.22s}
+.sec-vis .callout:nth-of-type(3){animation-delay:.32s}
+.callout:hover{box-shadow:var(--shadow-sm);transform:translateX(3px)}
+/* ── CARDS STAGGER ── */
+.sec-vis .card{animation:cardIn .4s cubic-bezier(.22,1,.36,1) both}
+.sec-vis .cards .card:nth-child(1){animation-delay:.08s}
+.sec-vis .cards .card:nth-child(2){animation-delay:.15s}
+.sec-vis .cards .card:nth-child(3){animation-delay:.22s}
+.sec-vis .cards .card:nth-child(4){animation-delay:.29s}
+.sec-vis .cards .card:nth-child(5){animation-delay:.36s}
+/* ── TABLE ROWS ── */
+.sec-vis .tbl tbody tr{animation:tableRowIn .35s cubic-bezier(.22,1,.36,1) both}
+.sec-vis .tbl tbody tr:nth-child(1){animation-delay:.10s}
+.sec-vis .tbl tbody tr:nth-child(2){animation-delay:.17s}
+.sec-vis .tbl tbody tr:nth-child(3){animation-delay:.24s}
+.sec-vis .tbl tbody tr:nth-child(4){animation-delay:.31s}
+.sec-vis .tbl tbody tr:nth-child(5){animation-delay:.38s}
+.tbl tbody tr:hover{transform:translateX(4px)}
+/* ── ACCORDION ── */
+.acc-cnt{
+ padding:15px 18px 18px;
+ font-size:13px;
+ color:var(--ink2);
+ line-height:1.88;
+ border-top:1px solid var(--cream3);
+ animation:accOpen .3s cubic-bezier(.22,1,.36,1) both
+}
+/* ── BOOK CARDS ── */
+.book-card{transition:transform .22s cubic-bezier(.34,1.56,.64,1),box-shadow .22s,border-color .18s}
+.book-card:hover{transform:translateY(-4px) scale(1.016);box-shadow:0 10px 28px rgba(26,23,20,.13);border-color:var(--rust)}
+.sec-vis .book-card{animation:cardIn .4s cubic-bezier(.22,1,.36,1) both}
+.sec-vis .cards .book-card:nth-child(1){animation-delay:.06s}
+.sec-vis .cards .book-card:nth-child(2){animation-delay:.12s}
+.sec-vis .cards .book-card:nth-child(3){animation-delay:.18s}
+.sec-vis .cards .book-card:nth-child(4){animation-delay:.24s}
+.sec-vis .cards .book-card:nth-child(5){animation-delay:.30s}
+/* ── QR ROWS ── */
+.sec-vis .qr-row{animation:tableRowIn .32s cubic-bezier(.22,1,.36,1) both}
+.sec-vis .qr-row:nth-child(1){animation-delay:.05s}
+.sec-vis .qr-row:nth-child(2){animation-delay:.10s}
+.sec-vis .qr-row:nth-child(3){animation-delay:.15s}
+.sec-vis .qr-row:nth-child(4){animation-delay:.20s}
+.sec-vis .qr-row:nth-child(5){animation-delay:.25s}
+.sec-vis .qr-row:nth-child(6){animation-delay:.30s}
+.sec-vis .qr-row:nth-child(7){animation-delay:.35s}
+.sec-vis .qr-row:nth-child(8){animation-delay:.40s}
+.sec-vis .qr-row:nth-child(9){animation-delay:.45s}
+.sec-vis .qr-row:nth-child(10){animation-delay:.50s}
+.sec-vis .qr-row:nth-child(11){animation-delay:.55s}
+.sec-vis .qr-row:nth-child(12){animation-delay:.60s}
+.sec-vis .qr-row:nth-child(n+13){animation-delay:.65s}
+/* ── CONTACT CARD ── */
+.contact-card{
+ background:#fff;
+ border:1.5px solid var(--border);
+ border-radius:12px;
+ padding:20px 22px;
+ max-width:460px;
+ box-shadow:var(--shadow-sm);
+ display:flex;
+ gap:16px;
+ align-items:flex-start;
+ margin-top:16px;
+ transition:box-shadow .22s,border-color .2s,transform .22s
+}
+.contact-card:hover{border-color:var(--rust-mid);box-shadow:var(--shadow);transform:translateY(-2px)}
+/* ── PILLS ── */
+.pill{
+ padding:4px 13px;
+ border-radius:20px;
+ font-size:12px;
+ cursor:pointer;
+ border:1.5px solid var(--border);
+ color:var(--ink3);
+ background:transparent;
+ transition:all .18s cubic-bezier(.34,1.56,.64,1);
+ user-select:none;
+ font-family:'Noto Sans SC',sans-serif;
+ display:flex;
+ align-items:center;
+ gap:4px
+}
+/* ── MAC DOTS PULSE ── */
+.qr-win-dot.r{
+ background:#ff5f57;
+ animation:dotPulse 3s ease-in-out 0s infinite
+}
+/* ── BACK-TO-TOP ── */
+#backtop{transition:opacity .25s,transform .3s cubic-bezier(.34,1.56,.64,1),background .2s}
+/* Reduce motion */
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+/* ── BACK-TO-TOP (improved) ─────────────────────────── */
+#backtop{
+  position:fixed;bottom:100px;right:24px;width:42px;height:42px;
+  background:var(--ink);color:#fff;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;cursor:pointer;font-size:17px;
+  opacity:0;transform:translateY(12px);
+  transition:opacity .25s,transform .3s cubic-bezier(.34,1.56,.64,1),background .2s;
+  z-index:200;box-shadow:var(--shadow);user-select:none;border:none
+}
+#backtop.show{opacity:1;transform:translateY(0)}
+#backtop:hover{background:var(--rust);transform:translateY(-3px) scale(1.1)}
+
+/* ── HISTORY BACK BUTTON ─────────────────────────────── */
+#nav-back{
+  display:none;align-items:center;gap:6px;
+  padding:7px 14px 7px 20px;font-size:12px;color:var(--rust);
+  cursor:pointer;border-bottom:1px solid var(--border);
+  background:var(--rust-light);font-family:'DM Mono',monospace;
+  font-size:11px;letter-spacing:.04em;
+  transition:background .15s;user-select:none;
+}
+#nav-back:hover{background:#f5e8e2}
+#nav-back.show{display:flex}
+
+/* ── SEARCH MODAL ────────────────────────────────────── */
+#search-modal{
+  display:none;position:fixed;inset:0;z-index:500;
+  background:rgba(26,23,20,.55);backdrop-filter:blur(6px);
+  align-items:flex-start;justify-content:center;padding-top:80px;
+}
+#search-modal.open{display:flex;animation:fadeIn .18s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+#search-box{
+  width:min(680px,92vw);background:#fff;border-radius:14px;
+  box-shadow:0 24px 80px rgba(26,23,20,.22);overflow:hidden;
+  animation:slideUp .22s cubic-bezier(.22,1,.36,1);
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+#search-input-wrap{
+  display:flex;align-items:center;gap:10px;padding:16px 20px;
+  border-bottom:1.5px solid var(--border);
+}
+#search-input-wrap .s-icon{font-size:18px;color:var(--ink4);flex-shrink:0}
+#search-q{
+  flex:1;border:none;outline:none;font-size:15px;font-family:'Noto Sans SC',sans-serif;
+  color:var(--ink);background:transparent;
+}
+#search-q::placeholder{color:var(--ink5)}
+#search-close{
+  cursor:pointer;color:var(--ink4);font-size:20px;line-height:1;
+  padding:2px 4px;border-radius:4px;transition:color .15s,background .15s;
+  flex-shrink:0;border:none;background:none;
+}
+#search-close:hover{color:var(--rust);background:var(--rust-light)}
+#search-results{max-height:420px;overflow-y:auto;padding:8px 0}
+#search-results:empty::after{
+  content:'输入关键词开始搜索…';display:block;padding:24px 20px;
+  color:var(--ink5);font-size:13px;text-align:center;
+}
+.s-result{
+  padding:12px 20px;cursor:pointer;border-left:3px solid transparent;
+  transition:background .12s,border-color .12s;
+}
+.s-result:hover,.s-result.s-active{background:var(--cream);border-left-color:var(--rust)}
+.s-result-ch{font-family:'DM Mono',monospace;font-size:10px;color:var(--rust);letter-spacing:.1em;margin-bottom:3px}
+.s-result-title{font-size:13.5px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.s-result-snip{font-size:12px;color:var(--ink4);line-height:1.6}
+.s-result-snip mark,.s-result-title mark{background:rgba(194,68,14,.15);color:var(--rust);border-radius:2px;padding:0 2px}
+.s-empty{padding:32px 20px;text-align:center;color:var(--ink4);font-size:13px}
+#search-hint{
+  padding:10px 20px;border-top:1px solid var(--border);
+  font-family:'DM Mono',monospace;font-size:10px;color:var(--ink5);
+  display:flex;gap:16px;
+}
+.s-hint-key{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--cream2);border:1px solid var(--border2);
+  border-radius:4px;padding:1px 6px;font-size:10px;color:var(--ink4);
+  margin-right:4px;
+}
+
+/* ── AI Q&A PANEL ────────────────────────────────────── */
+#ai-btn{
+  position:fixed;bottom:24px;right:24px;
+  display:flex;align-items:center;gap:8px;
+  background:var(--rust);color:#fff;border:none;cursor:pointer;
+  padding:11px 18px;border-radius:28px;font-size:13px;font-weight:500;
+  font-family:'Noto Sans SC',sans-serif;
+  box-shadow:0 4px 20px rgba(194,68,14,.4);
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .2s,background .2s;
+  z-index:300;
+}
+#ai-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 32px rgba(194,68,14,.5)}
+#ai-btn .ai-icon{font-size:16px;line-height:1}
+#ai-panel{
+  position:fixed;bottom:0;right:0;width:420px;max-width:100vw;
+  height:100vh;background:#fff;border-left:1.5px solid var(--border);
+  display:flex;flex-direction:column;z-index:400;
+  transform:translateX(100%);transition:transform .32s cubic-bezier(.22,1,.36,1);
+  box-shadow:-8px 0 40px rgba(26,23,20,.12);
+}
+#ai-panel.open{transform:translateX(0)}
+#ai-panel-head{
+  padding:16px 20px;border-bottom:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  background:linear-gradient(135deg,var(--ink) 0%,#2a2520 100%);flex-shrink:0;
+}
+.ai-head-left{display:flex;align-items:center;gap:10px}
+.ai-head-icon{font-size:20px;line-height:1}
+.ai-head-title{font-family:'Noto Serif SC',serif;font-size:15px;font-weight:700;color:#fff}
+.ai-head-sub{font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.5);margin-top:2px;letter-spacing:.04em}
+#ai-panel-close{
+  background:rgba(255,255,255,.12);border:none;color:#fff;cursor:pointer;
+  width:30px;height:30px;border-radius:50%;font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s;
+}
+#ai-panel-close:hover{background:rgba(255,255,255,.25)}
+#ai-messages{
+  flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px;
+  scroll-behavior:smooth;
+}
+#ai-messages:empty::after{
+  content:'';display:block;
+}
+.ai-welcome{
+  background:var(--cream);border-radius:10px;padding:16px;
+  border:1px solid var(--border);
+}
+.ai-welcome-title{font-family:'Noto Serif SC',serif;font-size:14px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.ai-welcome-body{font-size:12.5px;color:var(--ink3);line-height:1.85}
+.ai-suggestions{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+.ai-suggestion{
+  background:#fff;border:1.5px solid var(--border);border-radius:8px;
+  padding:8px 12px;font-size:12px;color:var(--ink2);cursor:pointer;
+  transition:border-color .15s,background .15s,transform .15s;text-align:left;
+}
+.ai-suggestion:hover{border-color:var(--rust);background:var(--rust-light);transform:translateX(3px)}
+.ai-msg{display:flex;flex-direction:column;gap:4px;animation:msgIn .25s ease}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.ai-msg.user{align-items:flex-end}
+.ai-msg.bot{align-items:flex-start}
+.ai-bubble{
+  max-width:88%;padding:10px 14px;border-radius:12px;
+  font-size:13px;line-height:1.8;
+}
+.ai-msg.user .ai-bubble{
+  background:var(--rust);color:#fff;border-radius:12px 12px 4px 12px;
+}
+.ai-msg.bot .ai-bubble{
+  background:var(--cream);color:var(--ink2);border-radius:12px 12px 12px 4px;
+  border:1px solid var(--border);
+}
+.ai-bubble strong{font-weight:600}
+.ai-bubble a{color:var(--rust);text-decoration:underline;cursor:pointer}
+.ai-typing{
+  display:flex;align-items:center;gap:5px;padding:12px 14px;
+  background:var(--cream);border:1px solid var(--border);
+  border-radius:12px 12px 12px 4px;width:fit-content;
+}
+.ai-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--ink4);
+  animation:dotBounce 1.2s ease-in-out infinite;
+}
+.ai-dot:nth-child(2){animation-delay:.2s}
+.ai-dot:nth-child(3){animation-delay:.4s}
+@keyframes dotBounce{0%,80%,100%{transform:scale(0.6);opacity:.4}40%{transform:scale(1);opacity:1}}
+#ai-input-area{
+  padding:14px 16px;border-top:1.5px solid var(--border);
+  display:flex;gap:10px;align-items:flex-end;flex-shrink:0;background:#fff;
+}
+#ai-input{
+  flex:1;border:1.5px solid var(--border);border-radius:10px;
+  padding:9px 13px;font-size:13px;font-family:'Noto Sans SC',sans-serif;
+  color:var(--ink);resize:none;outline:none;min-height:40px;max-height:120px;
+  transition:border-color .2s,box-shadow .2s;line-height:1.6;background:var(--cream);
+}
+#ai-input:focus{border-color:var(--rust);box-shadow:0 0 0 3px rgba(194,68,14,.08);background:#fff}
+#ai-input::placeholder{color:var(--ink5)}
+#ai-send{
+  width:38px;height:38px;background:var(--rust);border:none;border-radius:10px;
+  color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+  transition:background .15s,transform .2s cubic-bezier(.34,1.56,.64,1);
+}
+#ai-send:hover:not(:disabled){background:var(--rust-mid);transform:scale(1.08)}
+#ai-send:disabled{background:var(--ink5);cursor:not-allowed}
+
+/* ── SEARCH TRIGGER IN TOPBAR ────────────────────────── */
+#search-trigger{
+  display:flex;align-items:center;gap:6px;
+  background:var(--cream);border:1.5px solid var(--border);
+  border-radius:8px;padding:5px 12px;cursor:pointer;
+  font-size:12px;color:var(--ink4);font-family:'DM Mono',monospace;
+  transition:border-color .15s,box-shadow .15s;
+  user-select:none;white-space:nowrap;
+}
+#search-trigger:hover{border-color:var(--rust);color:var(--rust);box-shadow:0 0 0 3px rgba(194,68,14,.08)}
+#search-trigger .kbd{
+  font-size:10px;background:var(--cream2);border:1px solid var(--border2);
+  border-radius:3px;padding:1px 5px;color:var(--ink5);margin-left:4px;
+}
+
+/* ── SIDEBAR SEARCH (now opens modal) ────────────────── */
+.sb-search-box{cursor:pointer !important}
+
+/* ── OVERLAY for AI panel ────────────────────────────── */
+#ai-overlay{
+  display:none;position:fixed;inset:0;background:rgba(26,23,20,.3);
+  z-index:399;backdrop-filter:blur(2px);
+}
+#ai-overlay.show{display:block}
+
+/* ── MOBILE RESPONSIVE ───────────────────────────────── */
+@media(max-width:900px){
+  #ai-panel{width:100vw;height:85vh;bottom:0;top:auto;border-left:none;
+    border-top:1.5px solid var(--border);border-radius:16px 16px 0 0;
+    transform:translateY(100%)}
+  #ai-panel.open{transform:translateY(0)}
+  #search-box{width:95vw;margin:0 auto}
+  #search-modal{padding-top:40px}
+}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+<button id="backtop" title="回到顶部" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- SIDEBAR -->
+<aside id="sidebar">
+ <div class="sb-brand">
+ 
+ <div class="sb-eye">PR Knowledge Base</div>
+ <div class="sb-title">公关从业者<br>实战手册</div>
+ <div class="sb-meta">
+ <span class="sb-badge">2023–2026</span>
+ <span class="sb-badge">14 章节</span>
+ </div>
+ </div>
+
+  <div id="nav-back" onclick="navBack()">← 返回上一章节</div>
+ <div class="sb-search" onclick="openSearch()" style="cursor:pointer">
+ <div class="sb-search-box">
+  <span class="sb-search-icon">⌕</span>
+  <span style="font-size:12.5px;color:var(--ink5);flex:1">搜索知识库…</span>
+  <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink5);background:var(--cream2);border:1px solid var(--border);border-radius:3px;padding:1px 5px">⌘K</span>
+ </div>
+ </div>
+
+ <nav id="nav-scroll">
+ <div class="nav-group">章节导航</div>
+ <a class="nav-a active" onclick="goto('ch1')"><span class="nav-n">01</span>媒体关系建立与维护</a>
+ <a class="nav-a" onclick="goto('ch2')"><span class="nav-n">02</span>危机公关与负面处理</a>
+ <a class="nav-a" onclick="goto('ch3')"><span class="nav-icon"></span><span class="nav-n">03</span>KOL / 艺人合作</a>
+ <a class="nav-a" onclick="goto('ch4')"><span class="nav-n">04</span>海外PR与出海传播</a>
+ <a class="nav-a" onclick="goto('ch5')"><span class="nav-n">05</span>年度传播规划</a>
+ <a class="nav-a" onclick="goto('ch6')"><span class="nav-n">06</span>向上管理与内部协作</a>
+ <a class="nav-a" onclick="goto('ch7')"><span class="nav-n">07</span>舆情监测工具与数据</a>
+ <a class="nav-a" onclick="goto('ch8')"><span class="nav-n">08</span>新兴议题与行业趋势</a>
+ <a class="nav-a" onclick="goto('ch9')"><span class="nav-n">09</span>内容传播与品牌叙事</a>
+ <a class="nav-a" onclick="goto('ch10')"><span class="nav-n">10</span>其他实操细节</a>
+ <a class="nav-a" onclick="goto('ch12')"><span class="nav-n">12</span>延伸阅读书单</a>
+ <a class="nav-a" onclick="goto('ch13')"><span class="nav-n">13</span>记者转PR：身份重建</a>
+ <a class="nav-a" onclick="goto('ch14')"><span class="nav-n">14</span>初创公司PR生存指南</a>
+ <div class="nav-group" style="margin-top:8px">速查</div>
+ <a class="nav-a" onclick="goto('ch11')"><span class="nav-n">↗</span>关键原则速查表</a>
+ </nav>
+
+ <div class="sb-foot">整理自公关从业者交流群<br>群友集体智慧 · 非商业用途</div>
+</aside>
+
+<!-- MAIN -->
+<div id="main">
+ <div id="topbar">
+ <div id="bc"><span>知识库</span><span class="sep">/</span><span id="bc-cur" class="cur">总览</span></div>
+ <div class="pills">
+ <div class="pill on" onclick="setFilter(this,'')">全部</div>
+ <div class="pill" onclick="setFilter(this,'媒体')">媒体</div>
+ <div class="pill" onclick="setFilter(this,'危机')">危机</div>
+ <div class="pill" onclick="setFilter(this,'出海')">出海</div>
+ <div class="pill" onclick="setFilter(this,'KOL')"><span class="pill-icon"></span>KOL</div>
+ </div>
+ </div>
+
+ <!-- HERO -->
+ <section id="hero">
+ <div class="h-eye">Public Relations · Knowledge Base</div>
+ <h1 class="h-h1">公关从业者<br><em>实战手册</em></h1>
+ <p class="h-desc">整合自高质量公关从业者交流群多年讨论精华，涵盖媒体关系、危机处理、艺人合作、出海传播、舆情工具等核心议题，提供可直接落地的方法论与实操技巧。</p>
+ <div class="h-stats">
+ <div class="h-stat"><div class="h-stat-n">14+</div><div class="h-stat-l">核心章节</div></div>
+ <div class="h-stat"><div class="h-stat-n">100+</div><div class="h-stat-l">实操方法</div></div>
+ <div class="h-stat"><div class="h-stat-n">3yr</div><div class="h-stat-l">群聊精华</div></div>
+ </div>
+ <div class="h-ch-grid">
+ <div class="h-ch-item" onclick="goto('ch1')"><span class="h-ch-t">媒体关系</span></div>
+ <div class="h-ch-item" onclick="goto('ch2')"><span class="h-ch-t">危机公关</span></div>
+ <div class="h-ch-item" onclick="goto('ch3')"><span class="h-ch-em"></span><span class="h-ch-t">KOL合作</span></div>
+ <div class="h-ch-item" onclick="goto('ch4')"><span class="h-ch-t">出海传播</span></div>
+ <div class="h-ch-item" onclick="goto('ch5')"><span class="h-ch-t">年度规划</span></div>
+ <div class="h-ch-item" onclick="goto('ch6')"><span class="h-ch-t">向上管理</span></div>
+ <div class="h-ch-item" onclick="goto('ch7')"><span class="h-ch-t">舆情监测</span></div>
+ <div class="h-ch-item" onclick="goto('ch8')"><span class="h-ch-t">行业趋势</span></div>
+ <div class="h-ch-item" onclick="goto('ch9')"><span class="h-ch-t">内容叙事</span></div>
+ <div class="h-ch-item" onclick="goto('ch10')"><span class="h-ch-t">实操细节</span></div>
+ <div class="h-ch-item" onclick="goto('ch12')"><span class="h-ch-t">延伸阅读</span></div>
+ <div class="h-ch-item" onclick="goto('ch13')"><span class="h-ch-t">记者转PR</span></div>
+    <div class="h-ch-item" onclick="goto('ch14')"><span class="h-ch-t">初创PR指南</span></div>
+    <div class="h-ch-item" onclick="goto('ch11')"><span class="h-ch-t">速查表</span></div>
+ </div>
+ </section>
+
+ <div id="content">
+
+ <!-- CH1 -->
+ <div class="chapter" id="ch1" data-tags="媒体">
+ <div class="ch-banner ch-b1" data-num="01">
+        <div class="ch-banner-text">
+ <span class="ch-num">CH.01</span>
+ <div class="ch-title">媒体关系建立与维护</div>
+ <div class="ch-sub">认识媒体 · 分层维护 · 官媒认知 · 财新策略 · 喂选题</div>
+ </div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">如何认识媒体</div>
+ <p class="prose">认识媒体最核心的方式是"人传人"，熟人介绍是最高效的破冰路径。在没有熟人的情况下，可以从以下几个方向入手：</p>
+ <ul class="slist">
+ <li><strong>线上维护先行：</strong>先成为对方朋友圈的忠实互动者。评论比点赞更有价值，因为评论能开启共同话题，让对方对你有印象。持续一段时间之后再找话题切入，不要一开始就开门见山谈合作。</li>
+ <li><strong>线下刷脸 + 小礼品：</strong>向老板申请人均100元的预算，选择故宫文创产品加印公司Logo，既有文化感又有品牌辨识度。成本低效果好。</li>
+ <li><strong>核心策略——找主笔或资深记者：</strong>不要把精力平均分配。线上的维护标准是"投喂一手消息"，有任何独家信息或行业动态，第一时间给他。线下多约见面、多聊，了解对方的个人特性和关注点。</li>
+ <li><strong>新记者的处理方式：</strong>不要因为对方资历浅就忽视。先不管稿子本身，把人喊出来参加活动建立关系。今天的小记者可能三年后是主笔。</li>
+ </ul>
+ <div class="callout gold"><div class="callout-content">
+ <div class="c-label">▸ 晚点LatePost案例</div>
+ <div class="c-body">晚点LatePost能持续出独家，核心原因是：条线记者长期与各品牌PR高层维持深度信任关系，PR主动抢先投喂，记者自然优先写这条线。<strong>这是一个可以复用的逻辑。</strong></div></div></div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">媒体优先级与生态认知</div>
+ <div class="tbl-wrap"><table class="tbl">
+ <thead><tr><th>媒体</th><th>定位</th><th>注意事项</th></tr></thead>
+ <tbody>
+ <tr><td>21世纪经济报道</td><td>财经媒体首选，优先于时代传媒；内部优先21商评</td><td>架构相对稳定</td></tr>
+ <tr><td>时代商务</td><td>商务定向</td><td>架构变化频繁，记者南北调拨流动大</td></tr>
+ <tr><td>澎湃新闻</td><td>近年商业化，内容采编仍独立</td><td>商业部门接单不代表能控制内容；视角偏宏观</td></tr>
+ <tr><td>南方系/老财经班底</td><td>有新闻理想，做事有原则</td><td>关系一旦建立更稳固可信，值得重点投入</td></tr>
+ </tbody>
+ </table></div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">官媒合作：价值定位与费用参考</div>
+
+ <p class="prose">官媒合作是公关人最容易被"坑预期"的领域——<strong>信息是不对称的</strong>：官媒商务会告诉你能带销量，但4A公司反而会直接说不带ROI，就算你愿意花钱也带不了。这个分歧不是因为谁在撒谎，而是因为两者的利益出发点不同。</p>
+
+ <div class="callout gold"><div class="callout-content">
+ <div class="c-label">▸ 正确的价值定位</div>
+ <div class="c-body">官媒的核心价值是<strong>公信力背书和权威感塑造</strong>，属于 Branding 范畴，不是 Performance Marketing。正确的使用逻辑是：用官媒建立品质背书，再叠加 KOL、电商等转化型动作，最终才有可能反映在销量上。把官媒单独拿出来问"带了多少销量"，问的就不是它该干的事。</div></div></div>
+
+ <div class="callout red" style="margin-top:14px"><div class="callout-content">
+ <div class="c-label">▸ 两个常见误区</div>
+ <div class="c-body">
+ <strong>误区一：把官媒当带货渠道。</strong>官媒在C端带动即时销量的能力极弱，这点官媒商务不会主动说，但做过的品牌都知道。<br><br>
+ <strong>误区二：以为花钱就能控制内容。</strong>澎湃新闻等媒体的商业部门可以接单，但采编部门保持独立——付了钱买版面，稿子怎么写仍然是编辑说了算。这是国内外媒体的共同原则，不要以为钱能买来完全可控的叙事。
+ </div></div></div>
+
+ <p class="prose" style="margin-top:16px"><strong>两个特殊案例值得参考：</strong>新华社曾尝试过挂购买链接的直播形式，销售数据不错——但这本质上是社媒直播电商逻辑，而不是传统媒体的编辑内容逻辑，属于特例。另一个常被引用的"官媒绑定品牌"案例，其效果本质上来自<strong>长期高密度投放产生的品牌曝光感知</strong>，并非单次合作就能复制。</p>
+
+ <div class="callout blue" style="margin-top:14px"><div class="callout-content">
+ <div class="c-label">▸ 让官媒内容真正扩散的前提</div>
+ <div class="c-body">真正的"新闻点"是唯一的关键变量。内容本身没有新闻价值，无论媒体级别多高，花了多少钱，稿件都难以二次扩散。官媒合作的最大风险不是贵，而是<strong>花了大钱做了一篇没人转发的稿</strong>。</div></div></div>
+
+ <p class="prose" style="margin-top:20px">以下是主要官媒合作的费用参考区间（市场价，非固定定价，仅供预算参考）：</p>
+ <div class="tbl-wrap" style="margin-top:10px"><table class="tbl">
+ <thead><tr><th>媒体/形式</th><th>费用参考</th><th>备注</th></tr></thead>
+ <tbody>
+ <tr><td><strong>央视新闻</strong></td><td>百万级起步</td><td>主持人出镜另算；CCTV / 央视新闻 / 央视网是三套不同的价格体系</td></tr>
+ <tr><td><strong>央视网</strong></td><td>相对较低</td><td>有"超级工厂"等商业化栏目，性价比高于央视主频道</td></tr>
+ <tr><td><strong>人民网·透明工厂</strong></td><td>几十万起（年框价更低）</td><td>签年框合作价格可以大幅下降；适合制造业/快消品背书</td></tr>
+ <tr><td><strong>车马费</strong></td><td>200–1000元/人</td><td>500元是行业常规，当天现结；超过1000属于偏高，低于200也有</td></tr>
+ </tbody>
+ </table></div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">媒体维护进阶方法论</div>
+ <div class="acc">
+ <div class="acc-item">
+ <div class="acc-hd" onclick="toggleAcc(this)"><span class="acc-t">区分记者类型，分层维护</span><span class="acc-ic">+</span></div>
+ <div class="acc-bd"><div class="acc-cnt">手上的记者资源要有底——什么层次的人、适合什么样的对待方式、能不能划到"友军"阵营。知名记者往往很有脾气，要给足尊重；给小记者安排高层接待，他会感受到被重视；让老记者和老板谈笑风生，他会觉得这次采访有价值。平时要在维护记者关系中区分出哪些是"好记者"，哪些是"懒记者"，一个猴一个栓法。</div></div>
+ </div>
+ <div class="acc-item">
+ <div class="acc-hd" onclick="toggleAcc(this)"><span class="acc-t">行业报愿意发、商业报不愿意发，怎么破局</span><span class="acc-ic">+</span></div>
+ <div class="acc-bd"><div class="acc-cnt">不要试图直接推通稿，而是要站在媒体人的角度思考：他们需要什么？独家材料、数据、爆点。哪怕只给他们一句话的独家信息，也可以延展成一个新闻点。这需要PR在写稿之前就想清楚"我能给什么"，而不是给一篇自嗨的企业通稿。</div></div>
+ </div>
+ <div class="acc-item">
+ <div class="acc-hd" onclick="toggleAcc(this)"><span class="acc-t">头条号/百家号小号铺量做关键词</span><span class="acc-ic">+</span></div>
+ <div class="acc-bd"><div class="acc-cnt">效果不是看铺了多少，而是希望有一天某个记者去找资料的时候能用上你的内容。这是一种长效布局而非即时效果的策略，适合有长期传播需求的品牌。</div></div>
+ </div>
+ <div class="acc-item">
+ <div class="acc-hd" onclick="toggleAcc(this)"><span class="acc-t">对外媒的特别注意事项</span><span class="acc-ic">+</span></div>
+ <div class="acc-bd"><div class="acc-cnt">外媒执行新闻报道独立原则，不受经营影响，不要用对待国内媒体的思路对待外媒。建议多认识专栏作家（columnist），英美市场至今有请columnist写稿的惯例。高层不当发言处理：只要事情没上头条，不要主动发声明；如果外媒来询问，口径统一为"XX不代表公司立场"，并第一时间上报，等待高层介入，不要自己承担责任。</div></div>
+ </div>
+ <div class="acc-item">
+ <div class="acc-hd" onclick="toggleAcc(this)"><span class="acc-t">邪修方法论（供参考，谨慎使用）</span><span class="acc-ic">+</span></div>
+ <div class="acc-bd"><div class="acc-cnt">多了解行业八卦，可以拉近和媒体的关系。高层的八卦尤其能拉近你与核心记者的距离，但<strong>遇到狗仔什么都别说</strong>。非企业期待的正面内容出现时，可以安排国内自媒体来解读——正着读或反着读都行，放大对品牌有利的部分。</div></div>
+ </div>
+ </div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">给媒体喂选题：从"求合作"到"聊方向"</div>
+ <p class="prose">传统PR习惯以广告形式切入媒体合作，但实践中改变说法往往效果更好——从"请问我们能合作发稿"转变为"这个方向你们有没有感兴趣的条线记者，能不能做个选题聊一下"，把商业诉求包裹在内容选题的外壳里，更容易在媒体内部选题会上通过。</p>
+ <ul class="slist">
+ <li><strong>主体身份很重要：</strong>政企单位参与的选题更容易过媒体内部选题会，提前想好如何定位主体。</li>
+ <li><strong>降低门槛的做法：</strong>讨论选题的同时，把公司资料和相关背景整理好一并提供，帮助记者快速切入。即使当次没有用上，也是增进了解的好机会。</li>
+ <li><strong>记者层面的动力：</strong>记者推动选题也需要动力，在预算允许的情况下可以适当给到记者层面的感谢，让负责推进的老师有意愿继续跟进。</li>
+ <li><strong>没预算时的策略：</strong>苟一点，主要靠内容本身的新闻价值，以及长期积累的信任关系，不要强推。</li>
+ </ul>
+ <div class="callout blue"><div class="callout-content">
+ <div class="c-label">▸ 实操心得</div>
+ <div class="c-body">能不能过选题会，关键看有没有真实的新闻价值。提前把公司和选题的资料整理好交给记者，<strong>用了是好事，没用就当是增进了解</strong>——这个心态比死磕发稿更容易建立长期关系。</div></div></div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">如何与财新维护媒体关系</div>
+ <p class="prose">财新是一个特殊的媒体，通过商务渠道接触胡舒立几乎不可能——她不依赖商务，也不在乎行政压力（大院子弟背景）。财新的媒体关系维护，核心路径只有一条：<strong>深耕条线记者</strong>。</p>
+ <div class="callout gold"><div class="callout-content">
+ <div class="c-label">▸ LatePost的前车之鉴</div>
+ <div class="c-body">LatePost创始人"小晚"创立LatePost之前，曾是财新的爱将，长期深耕TMT条线。如果在那个阶段与其建立了深度关系——不管是选题引导还是情感纽带——在负面出现时至少有一个熟悉的记者操刀内容，比被陌生记者写要好得多。这个逻辑可以复用。</div></div></div>
+ <div class="callout blue" style="margin-top:14px"><div class="callout-content">
+ <div class="c-label">▸ 操作建议</div>
+ <div class="c-body">聚焦在你所在条线的具体记者上，不要试图搞定整个财新。条线记者维护好，选题可以引导，负面出现时也有操作空间。</div></div></div>
+ </div>
+ <div class="sec">
+ <div class="sec-title">境内通稿资源与媒体定价参考</div>
+ <p class="prose">群友整理的国内常用媒体资源，供预算评估和渠道选择参考。</p>
+ <div class="tbl-wrap"><table class="tbl">
+ <thead><tr><th>媒体</th><th>类型</th><th>定价参考</th><th>备注</th></tr></thead>
+ <tbody>
+ <tr><td><strong>36氪</strong></td><td>财经科技</td><td>询价</td><td>境内通稿有link，适合科技/商业方向</td></tr>
+ <tr><td><strong>GOOD上海 / 魔都上海</strong></td><td>生活方式公众号</td><td>头条约5W以内</td><td>Focus上海同价位，数据表现还行</td></tr>
+ <tr><td><strong>南风窗</strong></td><td>综合媒体</td><td>次条约8万，视频号约4万</td><td>价格偏便宜，但需评估实际数据表现</td></tr>
+ <tr><td><strong>Smile生活志 / Top北京</strong></td><td>生活方式</td><td>询价</td><td>生活方式类不错的选择</td></tr>
+ </tbody>
+ </table></div>
+ <div class="callout blue"><div class="callout-content"><div class="c-label">▸ 投放建议</div><div class="c-body">先看竞品在哪发、发多少钱，再谈自己的报价。阅读量/互动率数据比定价更关键，不要只看头次条报价，近期真实数据才有参考价值。</div></div></div>
+ </div>
+ <div class="sec">
+ <div class="sec-title">媒体资源管理：数量与分层</div>
+ <p class="prose">手上维护多少媒体资源算合理？群友经验：一个人通常维护 <strong>40–200家</strong>，但真正深度对接的约占 <strong>20%</strong>。数量不是重点，分层才是关键。</p>
+
+ <div class="tbl-wrap"><table class="tbl">
+ <thead><tr><th>层级</th><th>内地媒体参考</th><th>维护方式</th></tr></thead>
+ <tbody>
+ <tr><td><strong>头部/法批媒体</strong></td><td>四大报（人民日报、经济日报等），21世纪经济报道、一财、财联社、经观、中经、每经</td><td>重点维护，看主管单位和实际流量，不只看新榜排名</td></tr>
+ <tr><td><strong>财经垂直KOL</strong></td><td>吴晓波、小Lin说、巫师财经等顶流；粉丝千万级</td><td>看受众匹配度，商务合作为主，非媒体维护逻辑</td></tr>
+ <tr><td><strong>自媒体</strong></td><td>偏新闻型 vs 偏商务型，两类逻辑完全不同</td><td>沟通方式差异大，不能用同一套话术</td></tr>
+ <tr><td><strong>FT中文版</strong></td><td>金融时报中文版，头部定位，但国内影响力弱于21/每经</td><td>不太活跃，原创协调难；找主编走商务价格；专栏内容像开盲盒，发稿前不知道角度</td></tr>
+ </tbody>
+ </table></div>
+
+ <div class="callout blue"><div class="callout-content"><div class="c-label">▸ 媒体日常维护方法</div><div class="c-body">定期更新消息、喝咖啡、请吃饭、约活动——这四类缺一不可。频率不用高，但要有规律。感情是平时攒的，危机时候用的。</div></div></div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">低成本发稿渠道实况</div>
+ <p class="prose">不是每个项目都有大预算，以下是群友实测过的低成本发稿选项，以及各自真实的局限：</p>
+ <div class="tbl-wrap"><table class="tbl">
+ <thead><tr><th>渠道</th><th>成本参考</th><th>实际效果</th><th>适合场景</th></tr></thead>
+ <tbody>
+ <tr><td><strong>新华网主站</strong></td><td>700–800元/篇</td><td>站内搜不到，基本自嗨用；需要白名单来源才能发</td><td>应付任务、给客户看、留存截图</td></tr>
+ <tr><td><strong>凤凰大风号</strong></td><td>几十元/条</td><td>第三方入驻账号，不是官方渠道，懂的人一眼就知道</td><td>铺量，不追求真实传播</td></tr>
+ <tr><td><strong>凤凰财经</strong></td><td>正规链接200–300元，分频道</td><td>比大风号正规，但仍非顶级</td><td>有link需求、SEO补充</td></tr>
+ <tr><td><strong>极目新闻/凤凰新闻类</strong></td><td>低</td><td>第三方入驻账号为主，不是官方编辑内容</td><td>仅供铺量</td></tr>
+ </tbody>
+ </table></div>
+ <div class="callout red"><div class="callout-content"><div class="c-label">▸ 关于低成本发稿的本质认知</div><div class="c-body">有些客户需要的不是效果，而是"铺稿量"这个KPI本身——应付考核的。这没有对错，但PR要心里清楚：<strong>给链接是一回事，真实传播是另一回事</strong>。这两件事不要混在一起汇报。</div></div></div>
+ </div>
+ </div>
+
+ <!-- CH2 -->
+ <div class="chapter" id="ch2" data-tags="危机">
+ <div class="ch-banner ch-b2" data-num="02">
+        <div class="ch-banner-text">
+ <span class="ch-num">CH.02</span>
+ <div class="ch-title">危机公关与负面处理</div>
+ <div class="ch-sub">水军应对 · 平台投诉 · 负面视频 · CEO下场时机</div>
+ </div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">友商恶意抹黑的处理流程</div>
+ <ul class="slist">
+ <li><strong>第一步永远是留证据：</strong>截图或录屏，完整保存账号信息、发布时间、评论内容等。然后通知博主或平台直接删除。</li>
+ <li><strong>如果判断是水军：</strong>找规律（同一IP段、相似话术结构、出现时间规律性），整理成投诉函，找到能证明对方是水军的突破口。</li>
+ <li><strong>"致寒"的核心：</strong>不是你说他是水军，而是拿出证据让他觉得继续下去有法律风险，效果非常显著。只要有一个突破点说得通，就足够了。</li>
+ <li>发现账号集中属于同几家公司 → 可以走法律路径<strong>报警</strong>。</li>
+ </ul>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">社媒负面处理策略</div>
+ <div class="cards">
+ <div class="card"><div class="card-top" style="background:#b83232"></div><div class="card-body"><div class="c-label2">针对不实内容</div><div class="c-title">三步处理法</div><div class="c-body2">① 向信访办平台举报<br>② 联系媒体沟通删除<br>③ 正面内容对冲</div></div></div>
+ <div class="card"><div class="card-top" style="background:#b83232"></div><div class="card-body"><div class="c-label2">针对真实负面</div><div class="c-title">两个方向</div><div class="c-body2">① 晓之以情争取自愿删除<br>② 视情况采用更灵活的江湖手段</div></div></div>
+ <div class="card"><div class="card-top" style="background:#b83232"></div><div class="card-body"><div class="c-label2">日常操作</div><div class="c-title">优先正面对冲</div><div class="c-body2">给后续举报和删评操作留出缓冲时间，不至于让动作太明显。</div></div></div>
+ </div>
+ <div class="callout gold" style="margin-top:20px"><div class="callout-content">
+ <div class="c-label">▸ 品牌备用小号策略</div>
+ <div class="c-body">建一个看起来像门店小伙伴或客服自己运营的"小官号"，比官号更灵活。出面说话不会显得品牌心虚；送产品安抚消费者用小号做，比官号做更让人觉得是"有人情味的自发行为"，消费者的情绪更容易消散。</div></div></div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">平台投诉核心逻辑</div>
+ <ul class="slist">
+ <li><strong>援引法律法规：</strong>让平台觉得不处置有法律风险，这是最有效的路径。收集能涉及到网络信息侵权的适用法条，从法律条文上举证，成功率更高。</li>
+ <li><strong>逻辑清晰的侵权证据：</strong>证明内容侵权或不实，注意避免自证陷阱——光说"内容不实"是不够的，必须罗列反驳证据。</li>
+ <li><strong>砸钱买保障：</strong>在合作期内让平台提供舆情保障，最省力但最贵。</li>
+ </ul>
+ <div class="callout red" style="margin-top:14px"><div class="callout-content">
+ <div class="c-label">▸ 注意</div>
+ <div class="c-body">热点事件期间，媒体报道及其衍生内容平台一般不会处理，所以最好在热搜前置环节就介入投诉。微博投诉路径：附件必须提供企业盖章公函或律师函（二选一），缺少材料内部流程走不下去。视频号投诉会让对方知道是哪家公司发起投诉，要谨慎权衡。</div></div></div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">负面视频的传播优化：先争取删改，再谈其他</div>
+ <p class="prose">品牌被电视媒体曝光的视频，一旦发布到抖音、视频号等新媒体平台，后续品牌宣传时极易被平台推荐系统关联推送，形成长期影响。</p>
+ <div class="callout red"><div class="callout-content">
+ <div class="c-label">▸ 核心结论</div>
+ <div class="c-body"><strong>用正向内容"优化掉"负面关联，基本无效。</strong>结构化表达：负面比例再低，在平台的关联推荐逻辑里也会持续呈现。不要把赌注押在内容优化上。</div></div></div>
+ <ul class="slist" style="margin-top:14px">
+ <li><strong>第一步：争取删或修。</strong>找到发布方，尝试沟通删除或修改原始内容，这是最有效的解决路径。</li>
+ <li><strong>第二步：才能谈后续优化。</strong>在源头内容解决之前，铺正向内容做关联优化的效果极为有限。</li>
+ <li>注意：媒体出于新闻独立性通常不会配合删稿，但不妨一试，部分情况下确实存在操作空间。</li>
+ </ul>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">CEO下场回应舆情的适用场景</div>
+ <p class="prose">在技术领域公司之间的互相"拿捏"型舆情（非用户投诉型）中，CEO亲自在个人账号发声，往往比官号更有效。</p>
+ <ul class="slist">
+ <li><strong>C端官号的天然局限：</strong>官号回复有格式约束，轻了没用、重了有风险，过于官方的表达消费者根本不愿意看。</li>
+ <li><strong>"人味"的价值：</strong>有个人色彩的表达更吸引C端用户，能引发真实情感共鸣，在争议中放大品牌的正面印象。</li>
+ <li><strong>前提条件：</strong>CEO需要本身愿意出现在公众和媒体面前，且有一贯的个人形象——不能"出戏"（ooc）。影石CEO案例说明，形象一贯的CEO下场效果远好于平时低调的CEO突然发声。</li>
+ <li><strong>法律纠纷中要注意：</strong>法律事项是严肃场合，CEO账号发文如果太"太极"，反而会给外界一种大事化小、不认真对待的感觉，需要权衡表达力度。</li>
+ </ul>
+ <div class="callout gold"><div class="callout-content">
+ <div class="c-label">▸ B端 vs C端差异</div>
+ <div class="c-body">CEO下场更适合C端场景。B端沟通更看重机构信誉和正式渠道，个人账号的"人味"不一定加分；C端消费者反而更容易被有温度的个人表达打动。</div></div></div>
+ </div>
+ <div class="sec">
+ <div class="sec-title">历史负面撤稿的完整路径</div>
+ <p class="prose">针对品牌过往历史负面（非实时舆情），如何争取删稿或撤稿，群友整理了四条路径：</p>
+ <ul class="slist">
+ <li data-icon="①"><strong>直接发平台投诉函：</strong>必须有对方内容存在不实信息的铁证（如招股书、官方数据等），否则平台不会支持撤稿。证据越具体、越书面越好。</li>
+ <li data-icon="②"><strong>中央网信办涉企投诉专区：</strong>需要出专门的撤稿函，逻辑同上——有不实信息最好撤稿。但最终仍落回平台裁决，证据不足平台照样不撤。</li>
+ <li data-icon="③"><strong>SEO优化下沉：</strong>只能让负面内容在搜索结果中下沉，撤不了稿件本身，适合作为辅助手段。</li>
+ <li data-icon="④"><strong>商务合作形式：</strong>找到对方以合作名义要求撤稿（即"交保护费"），电话沟通效果更好。适用于小媒体、自媒体，大媒体和官媒不适用。</li>
+ </ul>
+ <div class="callout gold"><div class="callout-content"><div class="c-label">▸ 平台差异</div><div class="c-body">微信公众号投诉是最宽松的，小红书和抖音内容治理较严格，"恶意营销影响社区氛围"这种理由都能支持撤稿或降权限流。<strong>最有效的理由永远是：对方发布了不实信息。</strong>主观误导、恶意解读等软性理由平台基本不支持。</div></div></div>
+ <div class="callout red"><div class="callout-content"><div class="c-label">▸ 微信撤稿补充</div><div class="c-body">微信文章现在有3次修改机会，所以撤稿理由<strong>不能一次性放完</strong>，要做好车轮战的准备。媒体反弹是风险之一，撤稿理由要充分，需另外提前做预案。</div></div></div>
+ <div class="callout blue"><div class="callout-content"><div class="c-label">▸ 大媒体/官媒处理策略</div><div class="c-body">曝光量大的大媒体和官媒，建议以<strong>合作为主</strong>（看平常关系维护和具体预算）。他们自己平台的舆情管控可以作为合作权益谈进去——总不好一边合作一边拆台。</div></div></div>
+ <div class="callout gold"><div class="callout-content"><div class="c-label">▸ 撤稿决策优先级推论</div><div class="c-body">处理历史负面的四条路径并不平行，有明确的优先级：
+<br><br>
+<strong>第一优先：</strong>争取内容源头修改或删除（找媒体或原作者沟通）——成本最低，效果最彻底。
+<br><strong>第二优先：</strong>平台投诉+网信办——有铁证时成功率高，无证据时大概率无效，不要浪费次数。
+<br><strong>第三优先：</strong>商务合作换撤稿——适合小媒体自媒体，大媒体基本不适用，操作要低调。
+<br><strong>最后手段：</strong>SEO优化下沉——稿件删不掉时的保底动作，不能根治只能缓解。
+<br><br>
+<strong>最容易忽略的点：</strong>微信公众号有3次修改机会，投诉理由要分批打出，做车轮战准备——一次性把理由用完，对方改完下次就没有新理由了。</div></div></div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">舆情判断：专业分析 vs 领导感官</div>
+ <div class="callout gold"><div class="callout-content"><div class="c-label">▸ 核心认知</div><div class="c-body">舆情的大小，有时候不是客观依据和专业分析决定的，<strong>而是领导感官</strong>。少部分特别出彩的传播项目是因为领导本身有想法；大多数搞砸的传播项目，是因为领导太傲慢。</div></div></div>
+ <p class="prose" style="margin-top:14px">这意味着PR的价值很大程度上在于：在专业判断和领导感官之间找到平衡点——既要有数据和逻辑，也要理解领导的认知框架，学会"翻译"和引导，而不是硬碰硬地以专业压权威。</p>
+ </div>
+ </div>
+
+ <!-- CH3 -->
+ <div class="chapter" id="ch3" data-tags="KOL">
+ <div class="ch-banner ch-b3" data-num="03">
+ <div class="ch-icon-big"></div>
+ <div class="ch-banner-text">
+ <span class="ch-num">CH.03</span>
+ <div class="ch-title">KOL / 艺人合作</div>
+ <div class="ch-sub">达人筛选 · 改稿管理 · 风险核查 · 舆情预案</div>
+ </div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">KOL筛选标准与合作管理</div>
+ <p class="prose"><strong>判断标准优先顺序：</strong>先看行业匹配度 → 粉丝体量 → 触达数据（真实互动率）→ 垂类影响力。以前单纯看粉丝量，现在看粉丝+垂类影响力的组合。</p>
+ <ul class="slist" style="margin-top:14px">
+ <li><strong>国内达人畸形生态：</strong>品牌不仅要付费请达人，还要帮达人做投流，否则有的达人会拒绝合作。这个成本需要提前纳入预算。</li>
+ <li><strong>改稿原则：</strong>改稿机会一般只有3次，所有意见要集中整理好一次性给出。分批给意见到后期达人会非常不耐烦。</li>
+ <li><strong>现实心态：</strong>很多KOL的稿子基本是品牌方在写，做好心理准备。建议自己建一个信息收集表，要求达人按表填写，避免信息遗漏。</li>
+ <li><strong>不同类型达人特点：</strong>艺术类达人偏怪，沟通难度较高；科技类达人相对话少，但比较讲事理。</li>
+ </ul>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">艺人合作风险管理</div>
+ <div class="callout red"><div class="callout-content">
+ <div class="c-label">▸ 必须核查清单</div>
+ <div class="c-body">不能提及的团体名称 · 不能提及的合作艺人 · 不能提及的影视作品 · 历史争议事件及粉丝雷区 · 艺人过往代言品牌及其title档次对比 · 艺人<strong>过往所有公开发言</strong></div></div></div>
+ <p class="prose" style="margin-top:16px">工作室一般会整理好一份清单委婉告知品牌哪些是雷区。但背调不能完全依赖工作室，必要时接触大粉或通过工作室做引导，提前了解粉丝生态。</p>
+ <p class="prose"><strong>Title体系梳理（非常重要）：</strong>代言人分全球/亚太/大中华区，还可按产品分全线/支线；品牌大使分形象大使/推广大使；品牌挚友常见于短期合作。同档次艺人必须给同档次title，低了粉丝会闹事。</p>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">官宣代言人舆情预案框架</div>
+ <div class="cards">
+ <div class="card"><div class="card-top" style="background:#7c44a8"></div><div class="card-body"><div class="c-label2">01 阶段分析</div><div class="c-title">粉丝行为演化</div><div class="c-body2">2014前 / 14-18年 / 19-21年 / 21年至今，各阶段粉丝行为模式、组织能力、舆论影响力都有显著差异。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#7c44a8"></div><div class="card-body"><div class="c-label2">02 代言人本体</div><div class="c-title">历史全面梳理</div><div class="c-body2">过去的梗、行为模式、主要争议点、粉丝的集体雷区，越细越好。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#7c44a8"></div><div class="card-body"><div class="c-label2">03 粉圈构成</div><div class="c-title">比例与诉求</div><div class="c-body2">唯粉/CP粉/怀旧粉各占多大比例，各自诉求和禁忌，如何"端水"才能不得罪任何一方。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#7c44a8"></div><div class="card-body"><div class="c-label2">04 平台分析</div><div class="c-title">历史舆情案例</div><div class="c-body2">艺人的主要平台阵地，这个平台上历史舆情案例怎么演化的，处理路径是什么。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#7c44a8"></div><div class="card-body"><div class="c-label2">05 行业案例</div><div class="c-title">翻车案例库</div><div class="c-body2">近年来同行业代言翻车案例，越细越好，分析从哪个环节开始出问题、品牌怎么应对的。</div></div></div>
+ </div>
+ </div>
+ <div class="sec">
+ <div class="sec-title">Builder + Influencer：海外最值钱的交集</div>
+ <p class="prose">在海外传播语境里，<strong>Builder（创业者/行业建设者）和 Influencer 的交集</strong>，才是最有传播爆发力的节点——既有专业可信度，又有受众影响力。</p>
+ <ul class="slist">
+ <li><strong>为什么这个交集最稀缺：</strong>纯 Influencer 有流量没深度；纯 Builder 有干货没传播。两者兼具的人，一旦背书，可信度是普通KOL的数倍。</li>
+ <li><strong>具体形式：CEO做播客：</strong>群友分享真实案例——一家外资初创的CEO做了7个海外播客，与当地媒体大咖和行业 KOL 深度连接。这种 Word of Mouth 能量非常强大，能建立普通广告买不到的认知和认可度（Recognition）。</li>
+ <li><strong>为什么播客特别有效：</strong>播客的受众是主动收听的，注意力质量远高于刷到的内容。嘉宾背书等于主播向忠实听众的个人推荐，转化链条短且信任度高。</li>
+ <li><strong>如何找到这类交集人物：</strong>目标市场的行业峰会演讲者名单、LinkedIn上同时有媒体合作经历和创业背景的人、播客节目的常驻嘉宾。</li>
+ </ul>
+ <div class="callout gold"><div class="callout-content"><div class="c-label">▸ 延伸推论</div><div class="c-body">这个逻辑在国内也适用——行业内既有个人IP又深耕某领域的创业者/高管，他们的一句背书往往比一篇媒体报道更有说服力。找 Builder 型 KOL，而不只是粉丝量大的泛娱乐博主。</div></div></div>
+ </div>
+ </div>
+
+ <!-- CH4 -->
+ <div class="chapter" id="ch4" data-tags="出海">
+ <div class="ch-banner ch-b4" data-num="04">
+        <div class="ch-banner-text">
+ <span class="ch-num">CH.04</span>
+ <div class="ch-title">海外PR与出海传播</div>
+ <div class="ch-sub">建联路径 · 发稿平台 · 联系人 · 本地化认知</div>
+ </div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">海外媒体建联路径</div>
+ <ul class="slist">
+ <li>通过本地Agency建联是最省力的方式，Agency有现成的媒体资源库。</li>
+ <li>直接向媒体官网上的记者发邮件pitch；使用Cision等工具查询记者联系方式和话题偏好。</li>
+ <li>在LinkedIn上搜索目标行业记者查找邮箱，主动建联。0到1的阶段确实比较困难，需要做好持续投入的准备。</li>
+ </ul>
+ <div class="callout red" style="margin-top:14px"><div class="callout-content">
+ <div class="c-label">▸ 核心认知</div>
+ <div class="c-body">外媒执行新闻报道独立原则，你花钱买到的只是版面，稿子怎么写永远是记者和编辑说了算。如果品牌方没有新闻背景，不理解这一点，花几十万很可能写出一篇负面。</div></div></div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">海外发稿平台对比</div>
+ <div class="tbl-wrap"><table class="tbl">
+ <thead><tr><th>平台</th><th>优点</th><th>缺点</th><th>适合场景</th></tr></thead>
+ <tbody>
+ <tr><td><strong>PRNewswire（美通社）</strong></td><td>相对省心正规，有品牌背书；编辑修改水准专业</td><td>覆盖主要是美国，欧洲较少；不改不给发；价格较高</td><td>对海外媒体不熟悉的团队</td></tr>
+ <tr><td><strong>Globe Newswire</strong></td><td>价格比美通社便宜；在香港和新加坡有本地office，中文/英文均可沟通</td><td>无法提供特殊分析报告等附加服务（这是美通社的相对优势）</td><td>纯发稿需求、预算有限时的优选</td></tr>
+ <tr><td><strong>自建媒体关系</strong></td><td>直达记者，关系更深</td><td>需要有足够经验分辨渠道质量</td><td>与美通社同步推进</td></tr>
+ </tbody>
+ </table></div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">Globe Newswire 直接联系人</div>
+ <div class="contact-card">
+ <div class="contact-avatar" style="font-size:14px;font-weight:700;color:#fff;letter-spacing:.05em">GN</div>
+ <div class="contact-info">
+ <div class="contact-name">Mercury Yip（叶小姐）</div>
+ <div class="contact-role">Globe Newswire · 香港 · HK &amp; SG 市场</div>
+ <div class="contact-line"><a href="/cdn-cgi/l/email-protection#462b23342533343f683f2f36062829322f202f23226825292b"><span class="__cf_email__" data-cfemail="83eee6f1e0f6f1faadfaeaf3c3edecf7eae5eae6e7ade0ecee">[email&#160;protected]</span></a></div>
+ <div class="contact-line">可说港普及英文，可直接 email 联系</div>
+ <div class="contact-line">Base 香港，负责港澳及新加坡对接</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">出海传播的核心认知</div>
+ <div class="callout gold"><div class="callout-content">
+ <div class="c-label">▸ 最重要的一条原则</div>
+ <div class="c-body">先把"海外"两字从思维里扣掉。如果一家日本公司来中国卖东西，强调自己是"日本出海品牌"，中国用户的感受是什么？就是这个反过来的感受。做出海传播，首先要站在目标市场本地用户的角度看问题。</div></div></div>
+ <p class="prose" style="margin-top:16px"><strong>出口转内销 vs 真正的本地传播——两者无法兼容：</strong>很多时候老板嘴上说"都要"，但其实只想要其中一个。如果是为了让国内行业、媒体、政府有感知，本质是出口转内销，刷量就行；如果是真正打开海外市场，必须做本地化传播，把日常的dirty work包装成项目往国内传。</p>
+ <p class="prose"><strong>最有效的海外传播模式：</strong>找靠谱的本地经销商，让经销商自主做本地营销和PR。真正在海外有口碑的品牌，几乎都是这样做的。</p>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">东南亚与MENA市场特点</div>
+ <div class="cards">
+ <div class="card"><div class="card-top" style="background:#1a8c6a"></div><div class="card-body"><div class="c-label2">为什么选东南亚</div><div class="c-title">进入门槛相对低</div><div class="c-body2">试错成本低；肉类出口政策友好；华人基础多；北美/欧洲成熟零售体系对中国快消不利。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#1a8c6a"></div><div class="card-body"><div class="c-label2">主要挑战</div><div class="c-title">竞争与差异化</div><div class="c-body2">各国之间差异非常大；本地竞争对手根基深厚，如泰国正大在宠物行业深耕10年+，在尼尔森数据上超过玛氏和雀巢。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#1a8c6a"></div><div class="card-body"><div class="c-label2">MENA市场</div><div class="c-title">中东北非</div><div class="c-body2">海外主流说法叫MENA，算是大市场，但各国情况差异很大，需逐一研究，不能当作整体来操作。</div></div></div>
+ </div>
+ </div>
+ <div class="sec">
+ <div class="sec-title">北美市场PR：以保健品为例</div>
+ <p class="prose">针对海外品牌（保健品/快消品）想在北美市场做PR端流量转化的核心建议：</p>
+ <ul class="slist">
+ <li><strong>To C首选找KOL/KOC：</strong>海外PR和国内根本不是一个逻辑，想做实质性流量转化，第一步找垂直领域KOL/KOC，而不是铺媒体稿。现在KOC采买在很多公司也归公关管。</li>
+ <li><strong>找本地Agency发垂直媒体稿：</strong>发General媒体渠道基本没用，要找本地Agency对接垂直领域（健康、营养、运动等）专业媒体。</li>
+ <li><strong>PR稿和销售内容完全不是一回事：</strong>PR稿是建立品牌信任和背书，不是直接转化工具。想要转化，要靠SEO内容+销售落地页+转化漏斗配合。</li>
+ <li><strong>先问清楚业务端：</strong>有没有转化监测手段？如果带来转化，PR团队能不能分成？——搞清楚这两个问题，再决定PR怎么做、做多大。</li>
+ <li><strong>媒介分类要清晰：</strong>销售硬广（市场投放）、PR稿件、软文、PR投放是四条不同的线，各司其职，不要混淆。有公司把达人放公关，有的放市场，要提前和内部对齐。</li>
+ </ul>
+ <div class="callout red"><div class="callout-content"><div class="c-label">▸ 关键认知</div><div class="c-body">PR稿做的是长期背书和搜索可信度，不要用PR带货的逻辑来评估短期ROI。如果业务方要求PR直接带转化，要先对齐预期，否则容易背锅。</div></div></div>
+ <div class="callout gold"><div class="callout-content"><div class="c-label">▸ 延伸：北美保健品PR的归因链条</div><div class="c-body">北美市场的PR转化逻辑是一条长链，不是直线：
+<br><br>
+<strong>PR稿 → SEO权重提升 → 品牌搜索信任度 → 用户决策时的"背书感" → 最终转化</strong>
+<br><br>
+这条链条的中间环节很长，所以PR不能直接对销售转化负责。但这不代表PR无效——品牌在权威媒体的露出，会直接影响用户在Google搜索品牌时看到什么、相信什么。KOL/KOC带来的是短期流量脉冲，PR带来的是长期搜索信任度，两者应该并行而不是互相取代。
+<br><br>
+<strong>给业务方的正确沟通方式：</strong>"PR负责让用户在对比决策时信任你；KOL负责让他们知道你存在。这两件事都需要做，但评估标准不能混用。"</div></div></div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">国内PR转型海外PR：需要补什么</div>
+ <div class="cards">
+ <div class="card"><div class="card-top" style="background:#c2440e"></div><div class="card-body"><div class="c-label2">语言与表达</div><div class="c-title">英文文本能力</div><div class="c-body2">不只是翻译——要理解英文媒体的稿件逻辑、新闻写作风格，以及如何pitch外媒记者。基础够用不够，要能<strong>独立写作和沟通</strong>。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#2a5080"></div><div class="card-body"><div class="c-label2">渠道认知</div><div class="c-title">General vs 垂直媒体</div><div class="c-body2">海外General媒体渠道基本无效，要建立垂直媒体资源库。不同品类（保健品、科技、消费品）的媒体生态完全不同。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#1a8c6a"></div><div class="card-body"><div class="c-label2">本地Agency</div><div class="c-title">找靠谱Agency</div><div class="c-body2">从零开始建立本地媒体关系成本极高，初期必须依赖靠谱的本地Agency——但要懂得评估Agency的媒体资源真实性。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#7c44a8"></div><div class="card-body"><div class="c-label2">SEO与内容</div><div class="c-title">PR稿+SEO联动</div><div class="c-body2">PR稿在海外的核心价值之一是SEO——权威媒体链接提升品牌搜索可信度。要懂基本的SEO逻辑才能把PR内容价值最大化。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#b87c20"></div><div class="card-body"><div class="c-label2">转化思维</div><div class="c-title">PR ≠ 带货</div><div class="c-body2">海外PR的目标是建立品牌可信度，不是直接带货。要学会向业务方解释PR的价值链条，并与市场团队明确分工。</div></div></div>
+ </div>
+ <div class="callout blue"><div class="callout-content"><div class="c-label">▸ 职业定位建议</div><div class="c-body">"我以后出门不说自己是公关了，我是做<strong>公共传播策略</strong>的。"——海外语境下，Public Relations的定位更宏观，不局限于发稿，包括品牌叙事、危机管理、媒体关系、社区运营等。</div></div></div>
+ </div>
+ <div class="sec">
+ <div class="sec-title">港股上市公司新闻稿：多语言版本实操</div>
+ <p class="prose">在香港上市的公司，PR必须出具多语言版本的新闻稿，且各版本并非简单翻译——逻辑、用词、表达方式都有差异。</p>
+ <div class="tbl-wrap"><table class="tbl">
+ <thead><tr><th>版本</th><th>受众</th><th>特点</th></tr></thead>
+ <tbody>
+ <tr><td><strong>简体中文</strong></td><td>内地媒体/投资者</td><td>内容相对自由，可针对内地市场叙事；习惯普通话表达</td></tr>
+ <tr><td><strong>繁体中文</strong></td><td>港澳台媒体/投资者</td><td>港版繁体≠台版繁体——粤语、港普、台湾普通话的用词习惯都不同；部分字词和语序有本质差异</td></tr>
+ <tr><td><strong>英文</strong></td><td>国际投资者/英文媒体</td><td>需符合英文新闻写作规范；内容优先级和叙事角度可能与中文版不同</td></tr>
+ </tbody>
+ </table></div>
+ <ul class="slist" style="margin-top:14px">
+ <li><strong>三稿是标配：</strong>港股上市公司的Press Release，简体中文、繁体中文、英文三版是基本要求，缺一不可。</li>
+ <li><strong>繁体中文的坑：</strong>内地做繁体翻译最常见的错误是"直接把简体字转繁体字"，但忽略了港澳台各自的用词习惯差异。同一个意思，粤语表达和台湾中文表达可能完全不同。</li>
+ <li><strong>门户媒体仍是分发核心：</strong>收稿标准一般要有繁体中文，对收发标准是否规范有要求——"现在有个一收标准，就是对收发标准是否规范有影响"。</li>
+ <li><strong>AI正在介入：</strong>AI已能辅助做初稿和翻译，但最终质量仍需人工审核，尤其是繁体中文的地区适配。目前AI对粤语习惯的理解还有差距。</li>
+ </ul>
+ <div class="callout blue"><div class="callout-content"><div class="c-label">▸ 区分逻辑</div><div class="c-body">GB（简体）/ BS（繁体，又称Big5）/ EN（英文）是港股披露的三套语言体系。三者在内容侧重和表达上并非1:1翻译关系，有经验的PR会根据不同受众调整叙事重点。</div></div></div>
+ </div>
+ </div>
+
+ <!-- CH5 -->
+ <div class="chapter" id="ch5" data-tags="">
+ <div class="ch-banner ch-b5" data-num="05"><div class="ch-banner-text"><span class="ch-num">CH.05</span><div class="ch-title">年度传播规划与策略制定</div><div class="ch-sub">决策逻辑 · 声誉维度 · 媒体活动形式</div></div></div>
+ <div class="sec">
+ <div class="sec-title">如何判断"必做"与"不必要"</div>
+ <div class="cards">
+ <div class="card"><div class="card-top" style="background:#b87c20"></div><div class="card-body"><div class="c-label2">向上看</div><div class="c-title">老板预期与业务方向</div><div class="c-body2">今年公司最重要的战略是什么？老板最在意什么？甚至老板是i人还是e人，也影响对外发声频率和风格。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#b87c20"></div><div class="card-body"><div class="c-label2">向外看</div><div class="c-title">行业热点与受众</div><div class="c-body2">什么话题今年会有大的外部声量？目标受众关注什么？行业内哪些议题有传播红利？</div></div></div>
+ <div class="card"><div class="card-top" style="background:#b87c20"></div><div class="card-body"><div class="c-label2">向内看</div><div class="c-title">PR部门定位</div><div class="c-body2">PR部门在公司里的角色是什么？这决定了能申请到多大资源、能独立推进什么事。</div></div></div>
+ </div>
+ <div class="callout gold" style="margin-top:20px"><div class="callout-content">
+ <div class="c-label">▸ 核心原则</div>
+ <div class="c-body">不是跟热点，而是想清楚"<strong>什么是对的</strong>"——对品牌长期声誉有益的事，对核心受众有价值的事，和竞品拉开差异的事。这是PR真正应该做的决策逻辑。</div></div></div>
+ </div>
+ <div class="sec">
+ <div class="sec-title">PR部门的核心价值定位</div>
+ <p class="prose">品牌公关的核心价值是声誉管理，声誉影响六个维度：公众、监管、用户、友商、员工、投资人。</p>
+ <p class="prose" style="margin-top:10px">PR的强协作部门包括用户体验（UX）、政府关系（GR）、人力资源（HR）、投资者关系（IR）。PR与这些部门的关系是"配合"而不是"主导"，<strong>别抢别人的活，也别接别人的锅。</strong></p>
+ </div>
+ <div class="sec">
+ <div class="sec-title">媒体活动形式参考</div>
+ <ul class="slist">
+ <li>常规选择是晚宴，但越来越难拉开差异。创意案例：成都市场做过颂钵疗愈、插花、掼蛋；针对女性领导，私密定制体验感强的活动效果好，比如海派旗袍定制。</li>
+ <li>3C类媒体见惯大场面，规格高不一定出彩，特色食物和体验感更容易留下记忆点。</li>
+ <li>活动设计要考虑：预留时间长度、参与媒体的年龄和性别构成、偏中式还是法式风格。</li>
+ </ul>
+ </div>
+ <div class="sec">
+ <div class="sec-title">PR的KPI量化：行业公认的难题</div>
+ <p class="prose">PR是公司里最难量化价值的职能之一——不像销售有成交额，不像投放有ROI。这个问题没有完美答案，但有一套相对合理的分层框架：</p>
+
+ <div class="tbl-wrap"><table class="tbl">
+ <thead><tr><th>层级</th><th>指标</th><th>可量化程度</th><th>注意事项</th></tr></thead>
+ <tbody>
+ <tr><td><strong>传播覆盖</strong></td><td>媒体露出数量（N家）、平台覆盖数（N个）、品牌报道总量</td><td>高，容易统计</td><td>容易"注水"——铺了多少≠有效覆盖了多少目标受众</td></tr>
+ <tr><td><strong>受众互动</strong></td><td>互动率、点击量、转发量、视频完播率</td><td>中，依赖各平台数据</td><td>比单纯曝光量更有参考价值，但渠道间不可直接对比</td></tr>
+ <tr><td><strong>搜索与认知</strong></td><td>品牌词搜索量变化、官网直接访问量、AI引用频次</td><td>中，需工具辅助</td><td>PR动作和搜索量的归因关系难以直接证明，但长期相关性明显</td></tr>
+ <tr><td><strong>业务转化</strong></td><td>媒体带来的留资、转介绍、合作询盘</td><td>低，归因极难</td><td>不要轻易承诺，否则很容易背锅</td></tr>
+ </tbody>
+ </table></div>
+
+ <div class="callout red"><div class="callout-content"><div class="c-label">▸ PR KPI的两个常见陷阱</div><div class="c-body"><strong>陷阱一：用"发了多少稿"替代"传播了多少"。</strong>铺稿量是输入指标，不是结果指标。稿子发出去没有人看，等于没发。<br><br>
+<strong>陷阱二：把PR能做的事和销售能做的事混在一起考核。</strong>PR负责建立信任和认知，转化是市场和销售的事。如果被要求对销售结果负责，要在项目启动时就对齐清楚，否则注定背锅。</div></div></div>
+
+ <div class="callout blue"><div class="callout-content"><div class="c-label">▸ 实用建议</div><div class="c-body">和老板汇报时，准备两个版本：一个是"硬数据"（媒体数量、互动率等），一个是"感知证据"（有哪些重要媒体主动来找你、竞品在这段时间没有同等量级的报道等）。两者结合，比单纯堆数字更有说服力。</div></div></div>
+ </div>
+ </div>
+
+ <!-- CH6 -->
+ <div class="chapter" id="ch6" data-tags="">
+ <div class="ch-banner ch-b6" data-num="06"><div class="ch-banner-text"><span class="ch-num">CH.06</span><div class="ch-title">向上管理与内部协作</div><div class="ch-sub">C-level沟通 · 安全感逻辑 · 代际差异</div></div></div>
+ <div class="sec">
+ <div class="sec-title">与C-level沟通的核心原则</div>
+ <div class="callout gold"><div class="callout-content">
+ <div class="c-label">▸ 核心技巧</div>
+ <div class="c-body">C-level最需要的是安全感，他们天然对"问题""风险""不要这么干"这类词汇反感。有效的做法不是直接说"这个风险很大"，而是说"如果我们决定这么做，我已经准备好了以下几套危机应对预案"。<strong>把风险转化为已经被管理住的可能性，而不是一个未知的威胁。</strong></div></div></div>
+ <ul class="slist" style="margin-top:16px">
+ <li><strong>横向输出解决方案比横向强调风险更容易建立信任。</strong>经过几次验证你的预判是正确的之后，高层会给你更大的空间。</li>
+ <li><strong>代际差异：</strong>6070的CXO和新生代管理者在放权意愿上有明显差别，新生代相对更愿意授权给专业团队。</li>
+ <li><strong>品牌定位的推进逻辑：</strong>定位归根到底需要老板出那句话，品牌负责人的职责是帮老板论证和系统化。只有花了钱的定位，才能持续推进下去。</li>
+ </ul>
+ </div>
+ <div class="sec">
+ <div class="sec-title">PR公司与新客户沟通策略</div>
+ <p class="prose">当潜在客户（特别是问商业模式的公司）来找公关公司谈合作时，如何定位自己的核心价值并推进转化？</p>
+ <ul class="slist">
+ <li><strong>讲策略，不讲案例：</strong>讲"没有你在，他搞不定的策略"——让对方感知到你的不可替代性，而不是堆案例（案例对方自己也能找到）。</li>
+ <li><strong>知道know-how不等于能做：</strong>很多客户觉得知道方法就能自己做，要让他们理解执行能力、关系网络、实操经验的门槛，光有预算和方向是不够的。</li>
+ <li><strong>不要先做方案，先做背调：</strong>搞清楚这个公司当前舆情最大的问题在哪里，再以此为切口做规划，而不是上来就做一套通用方案。</li>
+ <li><strong>规划要体现不可替代性：</strong>做那种"没了你其他人做不了"的规划——深度绑定客户的具体处境，展示你对他行业、媒体生态、舆情风险的独特理解。</li>
+ </ul>
+ <div class="callout gold"><div class="callout-content"><div class="c-label">▸ 核心逻辑</div><div class="c-body">先摸清对方舆情底牌，再展示你能解决他最头疼的问题。这比任何通用案例或漂亮提案都有说服力。</div></div></div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">关系户的类型与处理方式</div>
+ <div class="cards">
+ <div class="card"><div class="card-top" style="background:#3d7a3d"></div><div class="card-body"><div class="c-label2">to B/G 关系户</div><div class="c-title">真惹不起</div><div class="c-body2">to B/G业务里，关系户是核心变量，你至少得知道要和谁处好关系——有关系户是好事，因为它帮你锁定了最关键的人。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#7c44a8"></div><div class="card-body"><div class="c-label2">to G 顶级关系户</div><div class="c-title">关公型——供着</div><div class="c-body2">To G的关系户那就不是普通关系户，是"请来镇宅的"。当关公供着的那种，不求他干活，只求他在场带来的隐性背书和安全感。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#2d6a9f"></div><div class="card-body"><div class="c-label2">自知是关系户</div><div class="c-title">可爱型——最好合作</div><div class="c-body2">自知是关系户，来交个五险一金就好，脾气很好，干活也认真可爱。这类反而是最顺畅的合作状态。</div></div></div>
+ </div>
+ </div>
+ <div class="sec">
+ <div class="sec-title">PR、GR、IR 职业路径对比</div>
+ <p class="prose">公关人经常面临是否转型 GR（政府关系）或 IR（投资者关系）的选择，以下是群内有过真实经历的从业者分享的核心判断。</p>
+ <div class="tbl-wrap"><table class="tbl">
+ <thead><tr><th>维度</th><th>PR 公关</th><th>GR 政府关系</th><th>IR 投资者关系</th></tr></thead>
+ <tbody>
+ <tr><td><strong>门槛</strong></td><td>最低，入门相对容易</td><td>中高，强依赖公司体量和个人人脉</td><td>高，需要金融/财会底子，能看懂财报</td></tr>
+ <tr><td><strong>核心能力</strong></td><td>内容、媒体关系、传播策略</td><td>关系维护、项目申报、政策理解、接受应酬压力</td><td>财报解读、投资者沟通、风险点识别、证券知识</td></tr>
+ <tr><td><strong>钱多钱少</strong></td><td>花钱的部门</td><td>拿钱的部门（GR能为公司带资源）</td><td>对股东负责，属于财务延伸</td></tr>
+ <tr><td><strong>上限</strong></td><td>强监管行业GR负责人能做到公司三四号位</td><td>看公司体量；国企/大平台才有真GR</td><td>IPO和上市公司标配，上限取决于公司市值</td></tr>
+ <tr><td><strong>能力迁移</strong></td><td>→GR 可迁移：话语体系、项目申报思维</td><td>GR→PR：宏观视野强，落地执行弱</td><td>IR+PR：财经公关，需要两套语言体系</td></tr>
+ </tbody>
+ </table></div>
+
+ <div class="cards" style="margin-top:20px">
+ <div class="card"><div class="card-top" style="background:#b83232"></div><div class="card-body"><div class="c-label2">PR路径特点</div><div class="c-title">花钱的孙子 → 策略的Leader</div><div class="c-body2">在很多公司，品牌部下面的PR"是BU的孙子"。但真正能走出来的路径是：pr+gr综合小leader，实际上更像<strong>董秘</strong>角色——既懂传播，又能统筹公共事务。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#1a8c6a"></div><div class="card-body"><div class="c-label2">GR转型要点</div><div class="c-title">关系≠万能，公司体量才是底气</div><div class="c-body2">GR很看公司位置。如果是高位公司，GR好做；如果是求人办事的那种，很难突破。纯靠个人关系没有公司体量支撑，GR工作往往只停留在<strong>应酬层面</strong>。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#2a5080"></div><div class="card-body"><div class="c-label2">IR入门要求</div><div class="c-title">金融+财会底子是硬门槛</div><div class="c-body2">从券商跳IR是一条路——需要起码看得懂财报、识别风险点、懂证券上市发行承销知识。IR工作目标清晰：对股东负责，需要懂怎么应对投资者和媒体的问题，以及政府合作的价值宣传。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#7c44a8"></div><div class="card-body"><div class="c-label2">推荐路径</div><div class="c-title">GR+PR >IR+PR</div><div class="c-body2">群里多数人认为GR+PR的方向更适合大多数人：刚开始得很辛苦，但上升后会积累真正的公共事务能力。IR+PR（财经公关方向）门槛更高，需要扎实的财务背景。</div></div></div>
+ </div>
+
+ <div class="callout red"><div class="callout-content"><div class="c-label">▸ 现实警示</div><div class="c-body"><strong>ZF（政府）的GR岗位在减少</strong>，GR应聘比PR少很多，竞争激烈且对出身要求高。"深耕时长和出身不一样"——半路转GR，和从小就在政府体系长大的GR，差距很明显。<br><br>
+<strong>IR同理</strong>：很多公司只在IPO期间才聘财经公关，其他时候这块是"密秘的"。ir工作不符合会不符合的年报、公告、报告——是一套严格的合规语言体系。</div></div></div>
+
+ <div class="callout gold"><div class="callout-content"><div class="c-label">▸ 群友认知：GR vs PR</div><div class="c-body">我通俗点的理解——GR能拿钱，PR能花钱，在公司的资源优先级就是不一样的。做pr+gr综合小leader，实际感觉更像<strong>董秘</strong>。如果是强监管行业，GR负责人甚至能跑到别的公司三四号位。</div></div></div>
+ <div class="callout blue"><div class="callout-content"><div class="c-label">▸ 延伸推论：三条路径的适合人群</div><div class="c-body">这三条路径背后的核心逻辑不同，适合不同性格和背景的人：
+<br><br>
+<strong>适合走 GR 的：</strong>善于建立和维护长期人际关系、能接受应酬文化、有政策敏感度、所在公司体量够大。GR 本质上是"关系型业务"，人情世故的比重远高于内容创作。
+<br><br>
+<strong>适合走 IR 的：</strong>有金融/财会背景、逻辑严谨、能接受合规约束、对数字和财务报告有舒适感。IR 是"说服投资人的工作"，需要能在严格的信披框架下清晰表达公司价值。
+<br><br>
+<strong>适合留在 PR 的：</strong>擅长内容创作和媒体关系、思维跳脱、喜欢多线程项目、不介意经常换新话题。PR 的核心竞争力是"让外部世界以正确的方式理解你的品牌"，这是 GR 和 IR 都需要、但专业度更弱的能力。
+<br><br>
+<strong>最优解：</strong>在 PR 底子上叠加 GR 或 IR 的语言体系，成为"能跨界翻译"的综合型公共事务人才——这才是天花板最高的路径。</div></div></div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">公关人跨领域知识恶补方法</div>
+ <p class="prose">无论是转型GR/IR、还是进入新行业，公关人如何系统性地补充陌生领域的知识？群友总结了两套可落地的方法：</p>
+ <ul class="slist">
+ <li><strong>大量文章阅读 + 输出倒逼理解：</strong>不需要真正理解到技术细节，但要有自己的理解并做内容输出。读不懂没关系，能"翻译成人话"才是关键能力。</li>
+ <li><strong>行业报告→白皮书→技术分析文章，逐步深入：</strong>先从行业报告入手建立宏观框架，遇到不懂的就百度，然后尝试把硬核内容翻译成普通人能理解的语言。</li>
+ <li><strong>IR/财经方向：</strong>起码要能看懂财报和风险点，懂证券上市发行承销基础知识，能看懂基础财经报道——这是上市公司PR和IR的最低配置。</li>
+ <li><strong>GR/政策方向：</strong>重点学习政策解读、项目申报逻辑、政府运作机制，以及如何和当地政府、公司、市场三方博弈的实务经验。</li>
+ </ul>
+ <div class="callout blue"><div class="callout-content"><div class="c-label">▸ 通用原则</div><div class="c-body">无论转哪个方向，能力迁移的核心是<strong>话语体系的切换</strong>——GR和PR是不同的话语体系，IR又是另一套。公关人的优势在于：擅长"翻译"和表达，这在任何方向都是核心竞争力。</div></div></div>
+ </div>
+ <div class="sec">
+ <div class="sec-title">日常汇报节奏：主动推进度，而不是等被问</div>
+ <p class="prose">执行类工作做多了，容易觉得日子过得差不多、整体有个平稳的效果就好——但日久不知怎么汇报自己工作的实际成果咋办。群友总结的核心原则：</p>
+ <ul class="slist">
+ <li><strong>有进度就马上汇报，看不看是他的事：</strong>主动汇报进度，老板会觉得你态度好、有掌控感。反正被主动问起来，那就是另外一回事了。</li>
+ <li><strong>做了事就让老板知道：</strong>万事留痕。不是表演，是保护自己——项目出了问题，你说"我做了XX"，要有记录佐证。</li>
+ <li><strong>老板单线微信，我会同时告知+1：</strong>如果大boss只和你单聊，建议把关键信息同步给直属上级（CC逻辑），既让他全程知情，也保护自己不被夹在中间。</li>
+ <li><strong>不主动拉大领导，但让他知道：</strong>一般全程在群里沟通，不主动把大领导拉进来。但如果大领导有相关考量主动加你，就要及时反馈关键信息，保证他全程知情。</li>
+ </ul>
+ <div class="callout gold"><div class="callout-content"><div class="c-label">▸ 大Boss信息管控的现实</div><div class="c-body">有些大Boss有信息要求不能让其他人知道——这时候看你在公司的角色定位。如果你是信息中心的角色，就更要谨慎：<strong>场面上的事尽量透明，但要知道哪些信息是不能流通的</strong>。老板需要自己保持Know-all的位置，不要越俎代庖帮他做信息过滤。</div></div></div>
+ </div>
+ </div>
+
+ <!-- CH7 -->
+ <div class="chapter" id="ch7" data-tags="">
+ <div class="ch-banner ch-b7" data-num="07"><div class="ch-banner-text"><span class="ch-num">CH.07</span><div class="ch-title">舆情监测工具与数据</div><div class="ch-sub">工具对比 · SEO vs GEO · 数据策略</div></div></div>
+ <div class="sec">
+ <div class="sec-title">常用舆情工具对比</div>
+ <div class="tbl-wrap"><table class="tbl">
+ <thead><tr><th>工具</th><th>核心优势</th><th>适合场景</th></tr></thead>
+ <tbody>
+ <tr><td><strong>舆情通</strong></td><td>综合评价最好，商务对接态度好，响应及时</td><td>主力监测工具</td></tr>
+ <tr><td><strong>智慧星光</strong></td><td>监测最全面，覆盖平台广</td><td>需要全面覆盖时</td></tr>
+ <tr><td><strong>知微</strong></td><td>分析报告写得好，适合深度分析</td><td>汇报、复盘报告</td></tr>
+ <tr><td><strong>人民舆情</strong></td><td>偏政务向，有政府背书</td><td>需要政府关系维护的品牌</td></tr>
+ <tr><td><strong>新红 + 灰豚</strong></td><td>小红书数据更精准，灰豚小程序直接搜更全</td><td>小红书渠道专项监测</td></tr>
+ </tbody>
+ </table></div>
+ <div class="callout gold" style="margin-top:16px"><div class="callout-content">
+ <div class="c-label">▸ 建议策略</div>
+ <div class="c-body">两套系统交叉验证，一套付费+一套试用；看整体声量用舆情系统，看具体渠道细节用新红+灰豚。用舆情系统拉小红书数据会有遗漏，灰豚小程序直接搜能搜到更多笔记，两者要结合使用。</div></div></div>
+ </div>
+ <div class="sec">
+ <div class="sec-title">SEO与GEO的预算分配</div>
+ <p class="prose">SEO传统上归市场部，GEO（生成式引擎优化，在AI搜索中提升品牌可见度）近年开始归公关做，两个部门需要互相协同。</p>
+ <ul class="slist" style="margin-top:14px">
+ <li><strong>快速判断是否要做GEO：</strong>看目标用户里有多大比例在用微信搜索或AI工具，大概估算比率就可以判断投入价值。</li>
+ <li><strong>行业整体声量不高时：</strong>建议不要铺量，而是优先把独立站和外发内容做结构化，让AI能够清晰抓取和理解品牌信息。</li>
+ </ul>
+ </div>
+ <div class="sec">
+ <div class="sec-title">小红书平台数据现状（2025–2026）</div>
+ <div class="tbl-wrap"><table class="tbl">
+ <thead><tr><th>数据项</th><th>数值</th><th>来源/时间</th></tr></thead>
+ <tbody>
+ <tr><td>月活用户（MAU）</td><td>超过 <strong>2亿</strong></td><td>第三方数据，2026年3月公布</td></tr>
+ <tr><td>日活用户（DAU）</td><td><strong>1.18亿</strong></td><td>第三方数据，2025年10月</td></tr>
+ <tr><td>月活用户（MAU）</td><td><strong>3.5亿</strong></td><td>第三方数据，2025年10月</td></tr>
+ <tr><td>开屏广告</td><td>CPM <strong>350元</strong></td><td>群友实测，价格偏高</td></tr>
+ </tbody>
+ </table></div>
+ <div class="callout red"><div class="callout-content"><div class="c-label">▸ 注意</div><div class="c-body">小红书2026年通案里<strong>没有公布</strong>新的日活/月活数据，目前流通的均为第三方数据。开屏CPM 350属于高价，之所以贵是因为平台议价能力强（"大赚特赚"+"强势"）。平台内部按垂类分负责人的架构今年似乎又在调整，日活目标是否达成存疑。</div></div></div>
+ </div>
+ <div class="sec">
+ <div class="sec-title">微博监测的几个盲区与真相</div>
+ <ul class="slist">
+ <li><strong>微博"仅粉丝可见"的内容也能被舆情系统监测到：</strong>平台设置的可见权限≠监测系统的访问权限。舆情工具拿到的是数据接口权限，不受前台展示规则限制——监测到了，但点进微博看不了原文。</li>
+ <li><strong>微博是全量监测：</strong>无论是公开内容还是半公开内容，主流舆情系统对微博的覆盖是全量的，不会漏。</li>
+ <li><strong>图片里的关键词也会被识别：</strong>监测系统普遍使用 OCR 技术识别图片文字，把关键词藏在截图里并不能规避监测。这点比很多人想象的更"可怕"。</li>
+ <li><strong>实操建议：</strong>危机内容如果出现在图片形式（截图、长图文），不要以为藏住了，舆情系统大概率已经收录。</li>
+ </ul>
+ <div class="callout blue"><div class="callout-content"><div class="c-label">▸ 补充：哪些内容基本不被收录</div><div class="c-body">新华网等站内发布、第三方入驻账号发的文章——站内搜不到，舆情系统也基本不收录。这类内容本质上是"给链接看的"，不产生真实的传播和声量。</div></div></div>
+ </div>
+ </div>
+
+ <!-- CH8 -->
+ <div class="chapter" id="ch8" data-tags="">
+ <div class="ch-banner ch-b8" data-num="08"><div class="ch-banner-text"><span class="ch-num">CH.08</span><div class="ch-title">新兴议题与行业趋势</div><div class="ch-sub">AI战略意义 · 内容账号 · 传统媒体价值</div></div></div>
+ <div class="sec">
+ <div class="sec-title">AI与公关工作</div>
+ <ul class="slist">
+ <li><strong>AI在传播层面的战略意义：</strong>媒体报道正在成为AI工具抓取信息的重要来源。如果品牌在权威媒体上有高质量的报道，这些内容会影响AI给用户的推荐结论，进而影响用户决策。这是一个值得提前布局的新逻辑。</li>
+ <li><strong>AI人和老板IP的现实评估：</strong>AI可以替代底层广告拍摄（广告模特）；代言看重的是明星的个人IP，AI短期内很难替代；老板AI IP如果老板魅力不强，基本是公司内部自嗨，外部感知很弱。</li>
+ <li><strong>AI在PR工作流程中最实用的场景：</strong>当你有一个项目的大框架但逻辑不够清晰的时候，用AI来反向提炼自己的逻辑，是目前验证下来最能提高项目成功跑完概率的用法。</li>
+ </ul>
+ </div>
+ <div class="sec">
+ <div class="sec-title">严肃内容账号的商业化路径</div>
+ <div class="cards">
+ <div class="card"><div class="card-top" style="background:#7c44a8"></div><div class="card-body"><div class="c-label2">内容策略三方向</div><div class="c-title">起步框架</div><div class="c-body2">① 抓重大传播节点（疫情、妇女节、国庆节）<br>② 抓社会议题（小镇做题家、就业率、女性晚婚）<br>③ 降低试错成本，先找数据好的内容直接转视频</div></div></div>
+ <div class="card"><div class="card-top" style="background:#7c44a8"></div><div class="card-body"><div class="c-label2">关键转折点</div><div class="c-title">时效性即竞争力</div><div class="c-body2">疫情期广州第二次大隔离，当晚就出了内容，成为第一个10W+。在热点事件刚发生的<strong>当晚</strong>就反应出来，而不是等24小时后跟风。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#7c44a8"></div><div class="card-body"><div class="c-label2">早期方法论</div><div class="c-title">2022年以前通用打法</div><div class="c-body2">30秒注意力窗口、开头快节奏入场、话题要有强共鸣性。当时的判断：<strong>"黑红也比没流量强"</strong>。</div></div></div>
+ </div>
+ </div>
+ <div class="sec">
+ <div class="sec-title">传统媒体的长期价值</div>
+ <p class="prose">传统媒体在当下的作用越来越聚焦于品牌塑造和背书效应，直接带来call to action已经非常困难。但品牌价值是长效的，好的品牌一旦占领消费端心智，才能实现长期收益。</p>
+ <p class="prose">另一个新的理由：AI时代，媒体报道会成为AI的重要信息来源，品牌在权威媒体的曝光会通过AI渠道持续发挥影响力。</p>
+ </div>
+ <div class="sec">
+ <div class="sec-title">GEO治理的现状与前景</div>
+ <p class="prose">GEO（生成式引擎优化）的恶意营销治理，是平台正在讨论但尚未正式推进的议题。以下是来自平台内部人士的一手信息：</p>
+ <ul class="slist">
+ <li><strong>治理是迟早的事，但今年大概率不会正式推进：</strong>相关规划去年已有，但因技术原因搁置——当时无法控制AI到底搜什么内容，且策略误伤太重。</li>
+ <li><strong>等待"清朗"专项：</strong>更可能的触发点是官方清朗行动正式设立GEO专项，或GEO对平台生态产生明显威胁。</li>
+ <li><strong>广告化路径：</strong>个人判断是等AI开始植入广告时，按广告治理逻辑处理GEO——届时灰产/投毒才有清晰的法律定义。</li>
+ <li><strong>平台商业化方向：</strong>不太可能走广告植入方式，更可能是类似抖音"小蓝词"的付费推广模式，本质还是广告位逻辑。</li>
+ <li><strong>核心矛盾：</strong>AI可控性差，管不了。弄微博智搜这类也是，一弄就一麻爪。从法治逻辑看，治理这个行业就等同于认可这个行业——不治理的话就是取缔。</li>
+ <li><strong>现阶段平台的做法：</strong>处理引用源（控制AI抓取的信息源头），而不是直接干预AI的输出结果。</li>
+ </ul>
+ <div class="callout gold"><div class="callout-content"><div class="c-label">▸ 对PR的实操启示</div><div class="c-body">现阶段GEO没有明确治理，品牌方仍可布局——但要做合规内容，避免"投毒"式操作。<strong>结构化独立站和权威媒体报道</strong>是当前最稳健的GEO策略，比灰产手段更具持续性。等治理正式落地，合规内容反而占优势。</div></div></div>
+ <div class="callout blue"><div class="callout-content"><div class="c-label">▸ 延伸推论：GEO与SEO的关系</div><div class="c-body">
+GEO是SEO在AI时代的延伸，底层逻辑一致：<strong>让权威来源提到你，AI才会引用你</strong>。区别在于——SEO优化的是搜索引擎索引，GEO优化的是AI语料库和引用来源。
+<br><br>
+<strong>当前可落地的GEO动作：</strong><br>
+① 确保品牌官网和独立站内容结构化、可被抓取；<br>
+② 在权威媒体（财经、行业垂直媒体）铺设高质量报道，这是AI的优先引用来源；<br>
+③ 保持内容的事实准确性——AI会引用可验证的信息，不实内容在GEO语境里反而更容易被过滤；<br>
+④ 不要急着做"GEO优化灰产"，等治理落地后这些打法会率先被清除。</div></div></div>
+ </div>
+ <div class="sec">
+ <div class="sec-title">AI介入新闻稿写作的现状</div>
+ <p class="prose">AI正在深度介入PR的稿件生产流程。以下是当前真实的使用情况与争议：</p>
+ <ul class="slist">
+ <li><strong>AI替代的环节：</strong>初稿生成、繁简互转、英文翻译初稿——这些重复性高、规范性强的工作，AI已经能大幅提速。</li>
+ <li><strong>AI还做不好的：</strong>繁体中文的地区习惯适配（粤语/港式中文/台湾中文差异）、新闻点的判断、稿件与品牌整体叙事的一致性校验。</li>
+ <li><strong>正确的使用方式：</strong>用AI做初稿+翻译+格式化，人工做策略判断+新闻点提炼+受众适配。不是让AI替代PR，而是让PR从重复劳动中解放，专注在真正需要判断力的地方。</li>
+ <li><strong>港股上市公司场景：</strong>AI辅助出三语版本（简体/繁体/英文）的初稿，但最终质量审核——尤其是繁体港版的地道程度——仍需有经验的PR把关。</li>
+ </ul>
+ <div class="callout red"><div class="callout-content"><div class="c-label">▸ 注意</div><div class="c-body">让AI做普通话转繁体中文，再直接用于香港市场，是最常见的低级错误。香港繁体≠台湾繁体，用词和句式习惯差异显著，AI目前还无法准确区分。</div></div></div>
+ </div>
+ <div class="sec">
+ <div class="sec-title">GEO落地：从内容到独立站的结构化布局</div>
+ <p class="prose">GEO（生成式引擎优化）的核心逻辑是：<strong>让AI有高质量的来源可以引用你</strong>。这和SEO的根基是一样的——区别在于优化的目标从搜索引擎索引变成了AI的语料和引用来源。</p>
+
+ <div class="cards" style="margin-top:16px">
+ <div class="card"><div class="card-top" style="background:#1a3a5c"></div><div class="card-body"><div class="c-label2">第一步</div><div class="c-title">新闻稿要符合AI抓取逻辑</div><div class="c-body2">PR稿件本身的结构要有利于被AI抓取：核心信息前置、数据具体、来源明确。与其写一篇"感觉很好"的稿，不如写一篇"结构清晰、事实密集"的稿——AI优先引用可验证的信息。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#1a8c6a"></div><div class="card-body"><div class="c-label2">第二步</div><div class="c-title">优化品牌独立站结构</div><div class="c-body2">把独立站作为"品牌事实库"来建设：产品参数结构化、关于我们信息完整、常见问题明确、内容可被机器清晰解析。目标是让AI访问官网时能准确理解并引用品牌信息。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#2a5080"></div><div class="card-body"><div class="c-label2">第三步</div><div class="c-title">权威媒体是引用源头</div><div class="c-body2">AI更倾向于引用权威来源。在财经、行业垂直媒体铺设的高质量报道，是GEO效果的核心基础设施。深度报道比浅层铺量更有价值——AI抓取时看的是内容质量而非数量。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#7c44a8"></div><div class="card-body"><div class="c-label2">评估方式</div><div class="c-title">追踪AI引用频次</div><div class="c-body2">目前可操作的评估方法：定期在ChatGPT、Kimi、豆包等工具中搜品牌相关词，看哪些内容被引用、引用的是哪些来源。虽然不够精准，但能建立基本感知。</div></div></div>
+ </div>
+
+ <div class="callout gold"><div class="callout-content"><div class="c-label">▸ 关于EEAT原则</div><div class="c-body">GEO要理解 <strong>EEAT</strong>（Experience 经验、Expertise 专业、Authoritativeness 权威、Trustworthiness 可信）——这本是Google搜索的内容质量评判框架，但同样是AI判断引用价值的逻辑。品牌内容要体现作者经验、专业背书、权威来源三者兼具，而不只是堆关键词。</div></div></div>
+
+ <div class="callout red"><div class="callout-content"><div class="c-label">▸ 当前阶段的现实局限</div><div class="c-body">目前很多GEO公司按月收费，但效果很难量化——AI引用的内容取决于多种因素，品牌方难以追踪归因。现阶段建议<strong>把GEO内容布局内化到PR常规工作中</strong>（稿件结构优化、独立站建设），而不是单独外包给GEO代理商花冤枉钱。</div></div></div>
+ </div>
+ </div>
+
+ <!-- CH9 -->
+ <div class="chapter" id="ch9" data-tags="">
+ <div class="ch-banner ch-b9" data-num="09"><div class="ch-banner-text"><span class="ch-num">CH.09</span><div class="ch-title">内容传播与品牌叙事</div><div class="ch-sub">探厂传播 · 感觉营造 · 公关与营销边界</div></div></div>
+ <div class="sec">
+ <div class="sec-title">后端传播的挑战与思路</div>
+ <p class="prose">快消行业的探厂、透明工厂等后端传播形式已经被做到极致，追求"专业和透明"的方向没有出路，因为消费者未必能看懂专业内容，给不专业的人看透明内容反而容易"找茬"。</p>
+ <div class="callout gold" style="margin-top:16px"><div class="callout-content">
+ <div class="c-label">▸ 更有价值的方向</div>
+ <div class="c-body">营造专业和透明的"<strong>感觉</strong>"，也就是建设氛围，而不是堆砌信息。药妆行业的做法可以参考——把后端的专业感以消费者能理解的方式呈现在前端，让人感受到可信赖，而不是被迫消化专业知识。</div></div></div>
+ </div>
+ <div class="sec">
+ <div class="sec-title">公关投放与市场营销的边界</div>
+ <p class="prose">有些行业里，市场、公关、品牌、商务、战略的边界本来就不清晰，很多工作高度重叠。公关投放（付费内容传播）和真正的公关（媒体关系、声誉管理）是两回事，但在组织架构上经常混在一起。清醒地认识这个边界，有助于在内部协作和资源争取上保持清晰的立场。</p>
+ </div>
+ <div class="sec">
+ <div class="sec-title">新闻稿发出前的评估框架</div>
+ <p class="prose">一篇新闻稿到底有没有必要发？发出去怎么判断达到目标了？群友整理了一套实操评估框架。</p>
+ <p class="prose"><strong>发稿的本质逻辑：</strong>大多数发稿是为了满足领导的情绪需求，如果你就想发，不会错的。但如果要论证发稿的价值，需要从以下维度判断。</p>
+ <div class="cards" style="margin-top:16px">
+ <div class="card"><div class="card-top" style="background:#1a3a5c"></div><div class="card-body"><div class="c-label2">发稿前判断①</div><div class="c-title">目标客户会看吗？</div><div class="c-body2">目标客户常不常去该媒体/社区？用户画像（行业 AM、大众、职场人）和媒体调性是否匹配。对业务几乎没意义的媒体，branding价值也要打折扣。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#1a3a5c"></div><div class="card-body"><div class="c-label2">发稿前判断②</div><div class="c-title">信息是否差异化？</div><div class="c-body2">和竞品、同类稿件相比，有没有新的信息增量？受众已经知道的事情重复发，只是在刷存在感，不是传播。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#2d6a4a"></div><div class="card-body"><div class="c-label2">发稿前判断③</div><div class="c-title">行业供需配对了吗？</div><div class="c-body2">当前业务阶段的供需是否配对——稿件内容和品牌现阶段最需要解决的传播问题是否一致？</div></div></div>
+ <div class="card"><div class="card-top" style="background:#2d6a4a"></div><div class="card-body"><div class="c-label2">发稿前判断④</div><div class="c-title">新闻点是否清晰？</div><div class="c-body2">然后再判断这个新闻稿的亮点、方向、主题是否准确。这是最后一步，不是第一步。</div></div></div>
+ </div>
+
+ <div class="tbl-wrap" style="margin-top:20px"><table class="tbl">
+ <thead><tr><th>评估维度</th><th>核心问题</th><th>可量化指标</th></tr></thead>
+ <tbody>
+ <tr><td><strong>受众精准度</strong></td><td>渠道是否配对，目标客户常去这个平台吗？</td><td>媒体用户画像匹配度</td></tr>
+ <tr><td><strong>受众深度</strong></td><td>比停留时长，看了多少，互动下载点击了什么</td><td>互动率、点击、下载量</td></tr>
+ <tr><td><strong>品牌信息密度</strong></td><td>这部分较难量化，可能要看新闻稿发布后公司和业务搜索量变化</td><td>搜索量变化、品牌词声量</td></tr>
+ <tr><td><strong>业务结果</strong></td><td>比如留资数、销售进入转化率</td><td>线索数、转化率（难直接归因）</td></tr>
+ </tbody>
+ </table></div>
+
+ <div class="callout gold"><div class="callout-content"><div class="c-label">▸ 核心原则：先定目标，再选方法（别射箭画靶）</div><div class="c-body">很多人发完稿才问"效果怎么样"——这是典型的<strong>射箭画靶</strong>。正确的顺序是先定好这篇稿子要实现什么目标（获客线索？品牌认知？内部激励？投资人背书？），目标不同，评估方法和投放渠道都完全不同。没有预设目标的稿件，只能靠曝光量自我安慰。</div></div></div>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">Storytelling：公关的新名字</div>
+ <p class="prose">公关这个词在英文语境里正在被"<strong>Public Communications Strategy</strong>"或"<strong>Storytelling</strong>"替代——不只是换了叫法，背后是职能定位的升级：从发稿、维护关系，变成主动构建品牌在各方利益相关者心中的叙事。核心框架没有本质变化，但思维方式有四个关键升级：</p>
+ <ul class="slist">
+ <li><strong>服务对象扩展：</strong>不只服务业务功能团队（市场部、销售），而是服务公司整体声誉目标。同一件事，如何对媒体说、对KOL说、对政府说、对投资人说——演绎方式不同，但叙事内核一致，这才是Storytelling能力的核心。</li>
+ <li><strong>有框架不等于有执行：</strong>框架搭好了只是起点。能不能被理论/框架逻辑归纳，是判断内容策略是否成立的第一步；执行走样了，框架再漂亮结果也一样糟糕。两者缺一不可。</li>
+ <li><strong>向上管理的关键：给领导抓手，而不是给领导风险：</strong>和C-level沟通时，单纯提"这个方向有潜力"不够——要给他看得见、摸得着的执行路径（受众是谁、讨论点在哪、能带来什么影响），让他有信心说"行，就这么做"。</li>
+ <li><strong>AI时代：策略在前，工具在后：</strong>不要把精力放在铺框架数量上。先想清楚：受众是谁、目标是什么、时间节点、渠道、希望达到的效果——策略定了，再用AI辅助内容生产。AI是提速工具，不是替代判断力的工具。</li>
+ </ul>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">真正打动人的品牌传播案例</div>
+ <p class="prose">群友总结了三种能真正产生传播效果的内容类型，并结合具体案例说明：</p>
+ <div class="cards" style="margin-top:16px">
+ <div class="card"><div class="card-top" style="background:#c2440e"></div><div class="card-body"><div class="c-label2">共鸣 + 认同</div><div class="c-title">打动人心型</div><div class="c-body2">让受众感到"说出了我的心声"。<br><br><strong>案例：Nike CNY</strong>——"被长辈问薪资几k，回答了跑量几k"。用反差切入，把尴尬变荣耀，引发年轻人集体共鸣。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#2a5080"></div><div class="card-body"><div class="c-label2">共识 + 思考</div><div class="c-title">发人深省型</div><div class="c-body2">让受众产生新的认知或者重新审视已有认知。<br><br><strong>案例：Heinz番茄酱印刷广告</strong>——将各类番茄与Heinz并排，用品质感视觉传递"只用最好的番茄"，简洁有力。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#3d7a3d"></div><div class="card-body"><div class="c-label2">好奇 + 追问</div><div class="c-title">引人入胜型</div><div class="c-body2">让受众忍不住想了解更多、主动传播。<br><br><strong>案例：麦当劳/肯德基</strong>——在纸袋上印种土豆农民的故事，让吃快餐变成了一次有温度的阅读体验。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#7c44a8"></div><div class="card-body"><div class="c-label2">平台互动营销</div><div class="c-title">用户参与型</div><div class="c-body2">让平台用户成为传播主体。<br><br><strong>案例：小红书年初"猫税"</strong>——平台自发的用户营销互动，感觉很好。<strong>IP联名：瑞幸×多邻国</strong>——品牌跨界联名制造话题，引发社交媒体自发扩散。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#b87c20"></div><div class="card-body"><div class="c-label2">创意广告参考</div><div class="c-title">泰国广告</div><div class="c-body2">谈起创意参考，群友一致推荐看泰国广告——情感浓度高、逆转设计精妙、在低预算下做出高共情效果，是品牌创意团队的学习标本。</div></div></div>
+ </div>
+ <div class="callout gold"><div class="callout-content"><div class="c-label">▸ 判断好内容的三问</div><div class="c-body">① 这个内容有没有让人产生<strong>情绪波动</strong>（不一定是正面，但要有感觉）？② 有没有让人想<strong>转发或者讨论</strong>？③ 品牌信息有没有<strong>自然融入</strong>，而不是强行植入？三问都是"是"，这个内容就值得做。</div></div></div>
+ </div>
+ </div>
+
+ <!-- CH10 -->
+ <div class="chapter" id="ch10" data-tags="">
+ <div class="ch-banner ch-b10" data-num="10"><div class="ch-banner-text"><span class="ch-num">CH.10</span><div class="ch-title">其他实操细节</div><div class="ch-sub">初创低预算 · 公益渠道 · 认证机构 · IPO传播</div></div></div>
+ <div class="sec">
+ <div class="sec-title">初创公司低预算PR</div>
+ <ul class="slist">
+ <li><strong>选题合作：</strong>主动找媒体谈联合选题，以内容换曝光。</li>
+ <li><strong>蹭会演讲：</strong>创始人主动申请参加行业会议，免费提供演讲，露脸是第一目标，办会方会自行做内容发布，不要过于功利。</li>
+ <li><strong>对接地方政府宣传部：</strong>地方宣传部有常规经费，主动联系，让他们在对外稿件里带上公司名字，或者在媒体来访时把公司纳入参观行程（备好伴手礼）。</li>
+ <li><strong>政府扶持计划：</strong>主动联系地方政府官方媒体，很多会免费帮拍摄、剪辑、采访，甚至免费发布报道。</li>
+ </ul>
+ </div>
+ <div class="sec">
+ <div class="sec-title">品牌公益合作渠道</div>
+ <p class="prose"><strong>内地公益机构：</strong></p>
+ <ul class="slist">
+ <li>对接当地教育局是做山区学校公益最稳妥的路径，后续工作开展也更顺畅。</li>
+ <li>推荐合作机构：百仁慈爱（专注山区学校）、中国青少年公益基金会、壹基金。</li>
+ <li><strong>必须注意：</strong>避开私募基金会和资金来源敏感的组织，否则一旦这些机构出事，品牌会受到牵连。</li>
+ </ul>
+ <p class="prose" style="margin-top:16px"><strong>香港公益组织（有群友实际合作经验）：</strong></p>
+ <ul class="slist">
+ <li><strong>Kids4Kids：</strong>儿童阅读/教育公益，有义工项目，适合亲子/教育类品牌。</li>
+ <li><strong>SPCA 爱护动物协会：</strong>宠物/动物保护，适合宠物品牌或有动物保护主张的品牌。</li>
+ <li><strong>GreenPower：</strong>环保议题，适合绿色/可持续相关品牌。</li>
+ <li><strong>香港乐施会（Oxfam HK）：</strong>国际知名，品牌背书强，适合有全球叙事的品牌。</li>
+ <li><strong>香港科技署：</strong>群友有合作经验，适合科技/创新相关项目。</li>
+ <li><strong>知名基金会：</strong>李嘉诚基金会、田家炳基金会、赛马会——这类富豪/宗教背景基金会权威性强，但合作门槛也高。</li>
+ </ul>
+ </div>
+ <div class="sec">
+ <div class="sec-title">IPO期间的传播原则</div>
+ <ul class="slist">
+ <li>品牌层面正常传播，和资本市场传播做好切割，两条线不要混。</li>
+ <li>尽量少主动发声，降低舆情风险敞口。</li>
+ <li>舆情风险管理建议：公关公司做一份预案，内部自己做一份，两版合并使用。</li>
+ <li>资本市场的风险点和日常PR的风险点不同，涉及政策合规、进度披露、资本市场法规等，需要专业人士参与。</li>
+ </ul>
+ </div>
+
+ <div class="sec">
+ <div class="sec-title">第三方认证机构的选择逻辑</div>
+ <p class="prose">行业认证（如"销量第一""市场领跑者"等）的含金量因行业和使用场景而异。选择认证机构前，建议先观察竞品在用哪些，并明确自己的使用场景是什么。</p>
+ <div class="tbl-wrap"><table class="tbl">
+ <thead><tr><th>机构</th><th>定位</th><th>价格参考</th><th>适合场景</th></tr></thead>
+ <tbody>
+ <tr><td><strong>弗若斯特沙利文（Frost & Sullivan）</strong></td><td>含金量相对最高，业内认可度强</td><td>一个词条约10–15万，因行业和词条不同</td><td>IPO背书、提升品牌调性、说服老板</td></tr>
+ <tr><td><strong>尚普咨询 / 灼识咨询 / 艾瑞咨询</strong></td><td>知名度较高，性价比适中</td><td>中等，可议价</td><td>日常传播素材、销售场景使用</td></tr>
+ <tr><td><strong>其他小机构</strong></td><td>权威感弱，价格最低</td><td>最低</td><td>白牌品牌增加传播素材；预算极有限时</td></tr>
+ </tbody>
+ </table></div>
+ <div class="callout gold" style="margin-top:16px"><div class="callout-content">
+ <div class="c-label">▸ 决策框架</div>
+ <div class="c-body"><strong>白牌用便宜认证增加传播素材，用昂贵认证提升品牌调性。</strong>如果只是需要"认证了"这个事实而不是"权威感"，哪家便宜用哪家——花钱基本都能拿到。公开报告也可以直接在咨询机构官网扒取使用。IPO场景才真正需要沙利文这类权威机构。</div></div></div>
+ </div>
+ <div class="sec">
+ <div class="sec-title">IPO公关公司：如何选，避什么坑</div>
+ <p class="prose">IPO阶段的公关需求非常特殊：合规压力大、时间窗口窄、信息敏感度极高。群里有过真实使用经验的群友，分享了选择公关公司的实际感受。</p>
+
+ <div class="cards" style="margin-top:16px">
+ <div class="card"><div class="card-top" style="background:#1a3a5c"></div><div class="card-body"><div class="c-label2">群友口碑 · 皓天（香港）</div><div class="c-title">IPO场景口碑较好</div><div class="c-body2">多位群友IPO时用过皓天（香港）。优点：对接的执行人员素质高且有活人感，速度还行，专业度不错。<br><br>局限：监测能力弱、海外传播是弱项；有时候"大爷"——不在服务范围内的事直接说不做；给钱加钱的风格不是所有客户都接受。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#b83232"></div><div class="card-body"><div class="c-label2">普遍反馈</div><div class="c-title">方案能看，执行靠人</div><div class="c-body2">业内普遍感受是：各家公关公司给的方案差异不大，基本都"能看但不能用"。真正决定体验的是对接团队的执行力和配合度，而不是公司名气。<br><br>核心需求：找不爱乱加价、leader不压榨底下人的团队。</div></div></div>
+ <div class="card"><div class="card-top" style="background:#3d7a3d"></div><div class="card-body"><div class="c-label2">以前Top机构</div><div class="c-title">历史问题：乱加价</div><div class="c-body2">之前Top级公关公司被反映最多的问题是"太爱加价"——合同外的需求动辄要额外收费。如果选择大型公关公司，合同阶段要把服务边界谈清楚，否则后期矛盾多。</div></div></div>
+ </div>
+
+ <div class="callout blue"><div class="callout-content"><div class="c-label">▸ IPO阶段PR的特殊原则</div><div class="c-body">IPO期间品牌层面正常传播，但必须与资本市场传播严格切割。资本市场的信息披露有严格的合规要求，PR不能乱发声、不能夸大、不能提前披露未公告信息。建议所有对外内容都过法务和券商合规审核，公关公司的方案也要符合当地证监会的规定。</div></div></div>
+ </div>
+ </div>
+
+ <!-- CH12 -->
+ <div class="chapter" id="ch12" data-tags="">
+ <div class="ch-banner ch-b12" data-num="12"><div class="ch-banner-text"><span class="ch-num">CH.12</span><div class="ch-title">延伸阅读：公关人书单</div><div class="ch-sub">实操书 · 商业读物 · 社会学 · 历史</div></div></div>
+
+ <div class="sec">
+ <div class="sec-title">群友集体推荐书目</div>
+ <p class="prose">以下书单来自群内公关从业者的真实阅读分享，分为公关实操、商业洞察、社会学基础三大方向。</p>
+
+ <div class="cards" style="margin-top:20px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))">
+ <div class="book-card"><div class="book-spine" style="background:#c2440e"></div><div class="book-inner"><div class="book-cat">公关实操</div><div class="book-title">《弱传播》</div><div class="book-desc">多位群友力荐，公关从业者站在实操角度的首选。对理解传播本质和舆论机制很有帮助。</div></div></div>
+ <div class="book-card"><div class="book-spine" style="background:#c2440e"></div><div class="book-inner"><div class="book-cat">公关实操</div><div class="book-title">《宣传》</div><div class="book-desc">适合本群的公关专项读物，帮助系统理解宣传的逻辑与机制。</div></div></div>
+ <div class="book-card"><div class="book-spine" style="background:#c2440e"></div><div class="book-inner"><div class="book-cat">公关实操</div><div class="book-title">《成为公关高手》</div><div class="book-desc">入行必读经典，多位群友的第一本公关书。</div></div></div>
+ <div class="book-card"><div class="book-spine" style="background:#c2440e"></div><div class="book-inner"><div class="book-cat">公关实操</div><div class="book-title">李国威老师系列</div><div class="book-desc">资深公关人李国威的实战著作，从实操角度出发，直接可用。</div></div></div>
+ <div class="book-card"><div class="book-spine" style="background:#2a5080"></div><div class="book-inner"><div class="book-cat">商业洞察</div><div class="book-title">《大败局》</div><div class="book-desc">做产经新闻和公关的必看，通过中国企业失败案例理解商业与公众舆论的关系。</div></div></div>
+ <div class="book-card"><div class="book-spine" style="background:#2a5080"></div><div class="book-inner"><div class="book-cat">商业洞察</div><div class="book-title">《黄仁勋：英伟达之芯》</div><div class="book-desc">了解科技领袖如何打造个人IP与企业叙事，对CEO公关策略很有参考价值。</div></div></div>
+ <div class="book-card"><div class="book-spine" style="background:#b87c20"></div><div class="book-inner"><div class="book-cat">认知提升</div><div class="book-title">《认知觉醒》</div><div class="book-desc">多位群友读后有收获，帮助建立自我认知框架，适合职业发展阶段阅读。</div></div></div>
+ <div class="book-card"><div class="book-spine" style="background:#1a8c6a"></div><div class="book-inner"><div class="book-cat">社会学入门</div><div class="book-title">《社会学的想象力》</div><div class="book-desc">社会学入门经典，帮助建立系统性理解社会现象的思维方式，极适合公关人打底。</div></div></div>
+ <div class="book-card"><div class="book-spine" style="background:#1a8c6a"></div><div class="book-inner"><div class="book-cat">社会学</div><div class="book-title">《乡土中国》</div><div class="book-desc">费孝通经典，理解中国社会底层逻辑，做国内PR的必备认知基础之一。</div></div></div>
+ <div class="book-card"><div class="book-spine" style="background:#3d7a3d"></div><div class="book-inner"><div class="book-cat">政治经济</div><div class="book-title">《置身事内》</div><div class="book-desc">与《乡土中国》搭配，理解中国政府与市场关系的主要逻辑，做政企公关必看。</div></div></div>
+ <div class="book-card"><div class="book-spine" style="background:#1a8c6a"></div><div class="book-inner"><div class="book-cat">社会学</div><div class="book-title">《生育制度》</div><div class="book-desc">费孝通另一力作，理解中国家庭与社会结构，扩展公关人的社会视野。</div></div></div>
+ <div class="book-card"><div class="book-spine" style="background:#7c44a8"></div><div class="book-inner"><div class="book-cat">历史人类学</div><div class="book-title">《翦商》</div><div class="book-desc">开头比较难读，但深入之后非常值得，理解中国文明底层逻辑。历史方面也推荐《枢纽》。</div></div></div>
+ <div class="book-card"><div class="book-spine" style="background:#2d6a9f"></div><div class="book-inner"><div class="book-cat">社会观察</div><div class="book-title">《你好，陌生人》</div><div class="book-desc">项飙的访谈与观察，轻松易读，对理解当代中国人的社会关系和公共情绪很有启发。</div></div></div>
+ <div class="book-card"><div class="book-spine" style="background:#b87c20"></div><div class="book-inner"><div class="book-cat">历史轻读</div><div class="book-title">《康熙的红票》</div><div class="book-desc">轻松愉快的历史读物，群友推荐作为放松选择。</div></div></div>
+ <div class="book-card"><div class="book-spine" style="background:#7c44a8"></div><div class="book-inner"><div class="book-cat">理论社会学</div><div class="book-title">汪民安《现代性》</div><div class="book-desc">社会学理论读物，适合想深入社会学体系的从业者，有助于建立批判性思考框架。</div></div></div>
+ </div>
+
+ <div class="callout blue" style="margin-top:24px"><div class="callout-content">
+ <div class="c-label">▸ 阅读路径建议</div>
+ <div class="c-body">
+ <strong>公关实操方向：</strong>《弱传播》→ 李国威系列 → 《宣传》<br>
+ <strong>社会理解方向：</strong>《乡土中国》+《置身事内》→ 《社会学的想象力》<br>
+ <strong>商业视角：</strong>《大败局》→ 《黄仁勋：英伟达之芯》<br>
+ <strong>轻松入门：</strong>《认知觉醒》或《康熙的红票》
+ </div></div></div>
+ </div>
+ </div>
+
+ <!-- CH11 -->
+ <div class="chapter" id="ch11" data-tags="">
+ <div class="ch-banner ch-b11" data-num="↗"><div class="ch-banner-text"><span class="ch-num">QUICK REF</span><div class="ch-title">关键原则速查表</div><div class="ch-sub">核心决策 · 速查索引 · 实战checklist</div></div></div>
+ <div class="sec">
+ <div class="qr">
+ <div class="qr-head"><div class="qr-win-dots"><div class="qr-win-dot r"></div><div class="qr-win-dot y"></div><div class="qr-win-dot g"></div></div><div class="qr-head-t">Quick Reference — 核心原则</div></div>
+ <div class="qr-row"><div class="qr-k">认识媒体</div><div class="qr-v">人传人为主；评论&gt;点赞；核心记者重点投喂；新记者从活动开始建关系。</div></div>
+ <div class="qr-row"><div class="qr-k">官媒合作</div><div class="qr-v">官媒不带销量，只做背书；要找新闻点，不然钱白花；KOL才是带货的那条线；发稿先想"我能给他什么独家"。</div></div>
+ <div class="qr-row"><div class="qr-k">危机处理</div><div class="qr-v">先留证据，再找突破口，正面对冲为主；小号比官号灵活；投诉要援引法条，光说"不实"没用。</div></div>
+ <div class="qr-row"><div class="qr-k">出海PR</div><div class="qr-v">先把"海外"从思维里扣掉；找本地经销商让他们自己做；出口转内销和真正本地传播是两套逻辑，不可兼得。</div></div>
+ <div class="qr-row"><div class="qr-k"><span class="qr-icon"></span>KOL合作</div><div class="qr-v">改稿3次一次性给完；不要高估达人理解能力；用表格收集信息；投流成本纳入预算。</div></div>
+ <div class="qr-row"><div class="qr-k">艺人合作</div><div class="qr-v">过往发言必查；title必须与同档次对齐；工作室禁忌清单要拿全；用流量就要承担粉丝高风险。</div></div>
+ <div class="qr-row"><div class="qr-k">向上管理</div><div class="qr-v">不说风险，只给预案；横向输出解决方案；几次验证正确之后，高层自然放权。</div></div>
+ <div class="qr-row"><div class="qr-k">舆情工具</div><div class="qr-v">两套系统交叉验证；红书数据用灰豚补；哪个数据好看用哪个（汇报场景）。</div></div>
+ <div class="qr-row"><div class="qr-k">AI趋势</div><div class="qr-v">媒体报道成为AI抓取来源，提前布局；用AI反向提炼自己的逻辑，不是让AI从零生成。</div></div>
+ <div class="qr-row"><div class="qr-k">内容叙事</div><div class="qr-v">不要追求"专业透明"，要营造专业透明的"感觉"；保持谦逊开放的探讨姿态，比旗帜鲜明站队更安全。</div></div>
+ <div class="qr-row"><div class="qr-k">历史负面</div><div class="qr-v">铁证才能撤稿；不实信息是最强理由；微信撤稿分3次打出；大媒体以合作换舆情管控权益。</div></div>
+ <div class="qr-row"><div class="qr-k">PR公司获客</div><div class="qr-v">讲策略不讲案例；不做方案做背调；规划要体现"没你搞不定"；先摸舆情痛点再切入。</div></div>
+ <div class="qr-row"><div class="qr-k">GEO治理</div><div class="qr-v">今年大概率不正式推进；现阶段做合规结构化内容最稳；等清朗专项或AI广告化落地再说。</div></div>
+ <div class="qr-row"><div class="qr-k">向上管理</div><div class="qr-v">舆情判断常受领导感官左右；出彩项目靠领导有想法，砸锅项目靠领导太傲慢；专业要能"翻译"成领导语言。</div></div>
+ <div class="qr-row"><div class="qr-k">GR vs IR</div><div class="qr-v">GR拿钱PR花钱；GR看公司体量，IR看财务背景；半路转GR难敌科班出身；GR+PR路径优于IR+PR路径。</div></div>
+ <div class="qr-row"><div class="qr-k">海外PR转化</div><div class="qr-v">To C找KOL；垂直媒体优于General渠道；PR稿≠带货，先对齐业务端转化预期；SEO是PR稿的核心价值之一。</div></div>
+ <div class="qr-row"><div class="qr-k">新闻稿评估</div><div class="qr-v">先问目标客户会看吗；信息是否差异化；业务供需配对了吗；最后才看新闻点清不清晰。</div></div>
+ <div class="qr-row"><div class="qr-k">好内容三问</div><div class="qr-v">有没有情绪波动？想不想转发讨论？品牌信息自然融入了吗？三问都是"是"，这内容就值得做。</div></div>
+ <div class="qr-row"><div class="qr-k">港股三语稿</div><div class="qr-v">简体/繁体（港版≠台版）/英文三稿是标配；繁体不能直接转换，地区用词习惯差异显著；AI可做初稿，但港版繁体必须人工审。</div></div>
+ <div class="qr-row"><div class="qr-k">低成本发稿</div><div class="qr-v">新华网主站700–800/篇但站内搜不到；凤凰大风号几十元但懂的人一看就知道；给链接是一回事，真实传播是另一回事。</div></div>
+ <div class="qr-row"><div class="qr-k">媒体分层</div><div class="qr-v">一人维护40–200家，重点对接约20%；头部看主管单位+流量，不只看新榜排名；FT中文版是头部但国内影响力弱于21/每经。</div></div>
+ <div class="qr-row"><div class="qr-k">微博监测</div><div class="qr-v">仅粉丝可见也能被舆情系统抓到；OCR识别图片文字，藏在截图里无效；微博是全量监测。</div></div>
+ <div class="qr-row"><div class="qr-k">GEO落地</div><div class="qr-v">新闻稿要符合抓取逻辑；独立站做品牌事实库；深度权威媒体报道是引用源头；理解EEAT原则；别急着外包给GEO代理商。</div></div>
+        <div class="qr-row"><div class="qr-k">记者转PR</div><div class="qr-v">优势是判断力不是执行力；公关就是变着花样的重复；切入点和立意不变，就是把电影变成预告片；在满足老板需求的基础上加点私货。</div></div>
+        <div class="qr-row"><div class="qr-k">初创PR重心</div><div class="qr-v">媒介不用焦虑（有料媒体自来）；舆情暂时放后；重心在策略和内容；核心挑战是镇住老板——真见过好体系才能镇住外行。</div></div>
+        <div class="qr-row"><div class="qr-k">初创入职判断</div><div class="qr-v">看组织发展阶段（技术/销售/运营/财务主导）；看汇报链路；看公司对PR是服务岗还是决策岗；关注未来+1的Manager看重什么。</div></div>
+ </div>
+ </div>
+
+
+  <!-- CH13: 记者转PR -->
+  <div class="chapter" id="ch13" data-tags="">
+    <div class="ch-banner ch-b9" data-num="13">
+      <div class="ch-banner-text">
+        <span class="ch-num">CH.13</span>
+        <div class="ch-title">记者转PR：身份重建与认知冲突</div>
+        <div class="ch-sub">角色转换 · 内容风格冲突 · 价值观落差 · 写作标准重设 · 特稿记者的优势</div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">核心困惑：新闻价值 vs 公关价值</div>
+      <p class="prose">记者做PR，最常遭遇的不是技能缺口，而是一场价值观的碰撞。<strong>你在公司感知到的东西，公司不认为有新闻价值；公司认为有传播价值的东西，你觉得矫情或没说服力。</strong>这种落差不在技术层，在认知层。</p>
+      <p class="prose">群友朱清华的总结切中要害：困惑的首先是沟通氛围，不再是过去就选题平等讨论的氛围。其次是内容风格——比如人物PR稿，她想写得好看易读有故事性，但整体风格要求是短平快。两点叠加，构成了记者转PR最真实的日常摩擦。</p>
+      <div class="callout gold">
+        <div class="callout-icon">&#128161;</div>
+        <div class="callout-content">
+          <div class="c-label">群智洞察</div>
+          <div class="c-body">记者本该代表的是<strong>读者视角</strong>——一开始可能也是这个目的被引入公司。但在高层、业务、读者之间的三方博弈过程里，读者视角反而最容易被忽视。（知之）</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">短平快 vs 深度叙事：工具观，不是优劣</div>
+      <p class="prose">从长稿到短平快，很多记者会有一种"降格"感。但本质上是两种传播工具之间的差别，没有优劣之分。</p>
+      <ul class="slist">
+        <li><strong>短平快的本质是信息密度工具：</strong>快速传递，节省读者时间，适配碎片化消费场景。学会了就会了，可复制性强。</li>
+        <li><strong>深度叙事是品牌资产工具：</strong>建立认知厚度，沉淀长尾传播价值，但要求更高的时间和资源投入。</li>
+        <li><strong>两种能力的本质区别：</strong>很快的信息传递，和很丰富的故事，是两种不同的东西——前者服务当下，后者服务未来。（李小敏）</li>
+      </ul>
+      <div class="callout blue">
+        <div class="callout-icon">&#127916;</div>
+        <div class="callout-content">
+          <div class="c-label">比喻</div>
+          <div class="c-body">你以前拍电影，现在需要把你的电影变成5分钟讲完的解说。<strong>切入点和立意都不要换，就是怎么碎片化高密度地把东西展现出来。</strong>（李提督）</div>
+        </div>
+      </div>
+      <p class="prose" style="margin-top:16px">谢睿KittyTse补充：短视频在视角之外，也讲求网感；和深度报道的诉求真的不太一样。不要期待用同一套肌肉处理两种形态。两条路径本身就不是同一赛道。</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">PR写作标准：不是文采，是把事情讲清楚</div>
+      <p class="prose">通讯社、媒体对PR稿的写作要求，基本就是<strong>用高中水平的文字把事情交代清楚就行</strong>——禁用修辞，只保留主谓宾。外国人沟通也不用修辞，开会议的开场词要求也是类似的。（李提督、知之）</p>
+      <p class="prose">Scarlett的结论更直接：在想现在PR稿是不是也不怎么看写作水平写作能力了，只要把事情讲清楚就行。李小敏补充：最基础的新闻稿写作是很容易上手的，但老板的期待就emmm……</p>
+      <div class="callout red">
+        <div class="callout-icon">&#9888;</div>
+        <div class="callout-content">
+          <div class="c-label">核心矛盾</div>
+          <div class="c-body">并不是"现在很需要既满足企业品牌及高层需求、又满足媒体需要的稿件"在同一篇文章里实现——这是两件事，勉强合并只会两头不落。<strong>公关稿和新闻稿不是一个东西。</strong>（DaisyLei、明天吃小豆花）<br><br>AI暂时替代不了媒体写，需要PR来做，然后通过媒体渠道发出。（DaisyLei）</div>
+        </div>
+      </div>
+      <p class="prose">沈旸一语中的：把事情讲清楚挺难的——太多稿子很好看，但是讲不清楚。</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">特稿记者转PR的核心优势</div>
+      <p class="prose">朱清华发问：特稿记者、深度记者，做公关的优势能力是啥？群友给出了三个维度的答案：</p>
+      <div class="cards" style="margin-top:16px">
+        <div class="card">
+          <div class="card-top" style="background:#c2440e"></div>
+          <div class="card-body">
+            <div class="c-label2">李提督</div>
+            <div class="c-title">问题角度 &amp; 新闻价值</div>
+            <div class="c-body2">看问题角度吧，和挖新闻价值——这两种能力是普通内容人很难训练出来的直觉。</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top" style="background:#2a5080"></div>
+          <div class="card-body">
+            <div class="c-label2">沈旸</div>
+            <div class="c-title">突破能力 &amp; 深度思考</div>
+            <div class="c-body2">突破能力和深度思考能力——能抓到别人抓不到的信息，并且能想到第二层。</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top" style="background:#1a8c6a"></div>
+          <div class="card-body">
+            <div class="c-label2">Scarlett</div>
+            <div class="c-title">人脉、资源、视角</div>
+            <div class="c-body2">人脉、资源、视角——多年采访积累的媒体人脉和对行业的立体认知，是可迁移的软资产。</div>
+          </div>
+        </div>
+      </div>
+      <div class="callout green" style="margin-top:16px">
+        <div class="callout-icon">&#128218;</div>
+        <div class="callout-content">
+          <div class="c-label">延伸：产品力与传播力的关系</div>
+          <div class="c-body">产品力永远是传播的第一生产要素——传播只能放大，不能创造。<strong>不建议攻讦，我们还是要靠着脸蹦，和市场一起做大。</strong>情绪标签、对于公关来说用还是不好，有记者问下市场草莓怎么评价也可以不回应传播——媒体不不停传播。（Fairness晴群讨论）</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">公关稿的"信息密度"问题：越写越长的陷阱</div>
+      <p class="prose">李提督的真实感受：现在公众号越写越长，信息密度越来越低，看的越来越累。400字能搞定的，非要写4000。又不想用AI来总结，因为AI总结的角度有点粗糙。</p>
+      <p class="prose">他的判断：<strong>篇幅短信息密度高的，可以精读；长篇大论，只能扫读。</strong>软文到底从什么时候开始越写越长——是短了不好收那么多钱？</p>
+      <div class="callout gold">
+        <div class="callout-icon">&#128202;</div>
+        <div class="callout-content">
+          <div class="c-label">PR KPI的衡量方式</div>
+          <div class="c-body">衡量PR价值，一般会把每篇报道的价值汇总作为PR价值呈现。例如美通社舆情监测后台的数据：<strong>Potential Audience Reach（潜在触达人次）</strong>和<strong>Advertising Value Equivalency（广告等值价值）</strong>。前者能到1亿+，后者能算到数百万。这是向上汇报最常用的量化框架。（Scarlett）</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">记者的核心优势：判断力，不是执行力</div>
+      <p class="prose">记者转PR最大的误区，是把自己定位成"会写稿的执行者"。真正稀缺的是对选题的嗅觉、对新闻价值的判断，以及把复杂内容变成可读叙事的能力。</p>
+      <div class="qr" style="margin-top:16px">
+        <div class="qr-head"><div class="qr-win-dots"><div class="qr-win-dot r"></div><div class="qr-win-dot y"></div><div class="qr-win-dot g"></div></div><div class="qr-head-t">记者转PR的核心优势拆解</div></div>
+        <div class="qr-row"><div class="qr-k">选题挖掘</div><div class="qr-v">从自身选题挖掘&amp;内容策划能力作为核心优势传递公司价值——这是企业看重媒体转型PR的本质所在（何）</div></div>
+        <div class="qr-row"><div class="qr-k">叙事转化</div><div class="qr-v">提供转译能力和补充叙事视角。对外内容产出是高层、业务、读者博弈的结果，记者天然懂读者那侧（知之）</div></div>
+        <div class="qr-row"><div class="qr-k">新闻切入点</div><div class="qr-v">优势是新闻切入点，很擅长和社会价值结合。短板是不能把这个优点短平快地展示出来（李提督）</div></div>
+        <div class="qr-row"><div class="qr-k">判断力积累</div><div class="qr-v">法侧重商法+律所尽职调查+企业架构经营模式报表+产经新闻阅读——形成独特的系统认知（李提督）</div></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">公关的本质：重复，平衡，三方博弈</div>
+      <p class="prose">Momoko的观察：公关是从不同角度重复传递一个信息。新闻要求"新"，而公关对"新"的要求低得多——公关是工具，什么程度的新都可以被接纳；新闻是生命力之一，有更高要求。猫儿响叮当总结：<strong>公关就是重复——变着花样的重复。</strong></p>
+      <div class="callout green">
+        <div class="callout-icon">&#9878;</div>
+        <div class="callout-content">
+          <div class="c-label">宏观视角</div>
+          <div class="c-body">PR的价值就是平衡这个冲突——在企业、媒体、公众三方博弈的过程中找到平衡点。但这个过程落到个人身上就是一种具体的痛苦。顶尖的PR可以同时满足企业（老板）需求与新闻热度；但从人性来说，前者在后者之前。（知之 &amp; 谢睿KittyTse）</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">以Kimi为例：公关内容的感觉工程</div>
+      <p class="prose">Thomas Luo骆轶航对Moonshot/Kimi的PR策略做了一段深度复盘：</p>
+      <ul class="slist">
+        <li><strong>Kimi的PR确实在线：</strong>K2.5发布后三名联合创始人上Reddit做AMA；让Zhilin在中关村论坛以主持人身份出现彰显个人风格；被Cursor套壳后的一系列应对和X上的公开发声；最早期的出圈营销——聪明且cutting edge。</li>
+        <li><strong>这次卧底报道的问题不在策略，在执行：</strong>想效仿Cursor开放媒体"卧底"写inside story的思路是好的，国内也够新鲜。但找错了媒体和作者，出现了"朝鲜式报告文学"的名场面。</li>
+        <li><strong>100小时 vs 100天的质量差：</strong>100天里很多东西会自然流露，会发现接近真相的原生素材。100小时非常容易营造出"领导检查工作"的场景，不可能离真相太近。</li>
+      </ul>
+      <div class="callout red">
+        <div class="callout-icon">&#128269;</div>
+        <div class="callout-content">
+          <div class="c-label">理想状态</div>
+          <div class="c-body">即便安排了有限的会议和交流，也应该是一篇反映独特且令人舒适的企业文化、以及竞争力的文章——<strong>新鲜、盎然、聪明、充满希望，而不是肉麻、矫情、夸大和哽咽战栗。</strong>（Thomas Luo）</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">那篇文章为什么出圈：广义传播的分层逻辑</div>
+      <p class="prose">Fairness晴的观察：文章本身不是给行业内资深的人较真去看的，而是广义的企业文化传播。知之补充：业内的人不会真的相信这篇文章，但更广义的传播市场会很买单。</p>
+      <p class="prose">这揭示了重要的PR分层逻辑：<strong>不同的内容，服务不同的受众，不能用同一套标准评判。</strong>在传播内容里能做出至少一个有价值的亮点就很不错了。从业者不会根据采访报道来判断一家技术公司的深浅——内容做的是广义认知，而不是行业内的说服。（知之）</p>
+    </div>
+  </div>
+
+  <!-- CH14: 初创公司PR生存指南 -->
+  <div class="chapter" id="ch14" data-tags="">
+    <div class="ch-banner ch-b10" data-num="14">
+      <div class="ch-banner-text">
+        <span class="ch-num">CH.14</span>
+        <div class="ch-title">初创公司PR生存指南</div>
+        <div class="ch-sub">JD解读 · 镇住老板 · 媒介节奏 · 汇报链路 · 组织阶段判断 · 头条号运营 · PR定位</div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">初创PR的JD：写得满，重心只有一条</div>
+      <p class="prose">初创公司的PR，JD一般写得很满——策略、内容、媒介、舆情全都要。但本质是<strong>身兼多职，不是每项能力都要拉满</strong>，核心逻辑只有一条：有问题能解决问题。</p>
+      <div class="cards" style="margin-top:16px">
+        <div class="card">
+          <div class="card-top"></div>
+          <div class="card-body">
+            <div class="c-label2">媒介关系</div>
+            <div class="c-title">不用焦虑</div>
+            <div class="c-body2">媒体势利，有融资有创新，他们自己会找上门；没有的时候强推没用，有钞能力另说。</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top" style="background:#2a5080"></div>
+          <div class="card-body">
+            <div class="c-label2" style="color:#2a5080">舆情监测</div>
+            <div class="c-title">暂时放后</div>
+            <div class="c-body2">初创体量小，真正的危机极少。不需要从第一天就建立完整的舆情监测体系。</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top" style="background:#1a8c6a"></div>
+          <div class="card-body">
+            <div class="c-label2" style="color:#1a8c6a">策略与内容</div>
+            <div class="c-title">核心重心</div>
+            <div class="c-body2">真正需要精力投入的地方。能不能讲好公司的故事，能快速理解业务，是核心价值所在。</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top" style="background:#7c44a8"></div>
+          <div class="card-body">
+            <div class="c-label2" style="color:#7c44a8">镇住老板</div>
+            <div class="c-title">最大挑战</div>
+            <div class="c-body2">被外行老板push着接需求，会很累，也做不出好东西。这是初创PR最核心也最难的一关。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">PR的两种定位：marcom贴业务 vs 职能岗跟老板</div>
+      <p class="prose">PR这个工，要么<strong>偏marcom在brand下面贴近业务</strong>，业务活/忙则你活/更忙；如果是<strong>偏职能岗的</strong>，得跟住老板，成为"自己人"。</p>
+      <p class="prose">这两条路径对应着完全不同的生存逻辑——前者靠的是对业务的理解深度和执行能力，后者靠的是信任关系和政治嗅觉。入职前认清自己进的是哪条道，对应调整预期和做事方式。</p>
+      <div class="callout gold">
+        <div class="callout-icon">&#128202;</div>
+        <div class="callout-content">
+          <div class="c-label">内容 · 舆情 · 品牌：三位一体</div>
+          <div class="c-body">内容、舆情、品牌是不可分割的。单独把某一项外包或割裂，往往会导致三方失衡。一个非常优秀的PR人才能同时做到这三者并让它们协同——这也是为什么初创公司一个PR往往做多个人的活。（Luna）</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">如何镇住老板：见识+手感+判断力</div>
+      <p class="prose">镇住老板的前提，是真见过好体系、做过好传播。不是靠title，是靠<strong>有经验（见识）、有手感（操作）、有判断力（战略）</strong>——知道什么该推、什么该等。</p>
+      <div class="callout gold">
+        <div class="callout-icon">&#127919;</div>
+        <div class="callout-content">
+          <div class="c-label">核心能力模型</div>
+          <div class="c-body">底座是<strong>快速学习能力</strong>：能在短时间内理解行业和业务，达到可以对话的水平。<br><br>
+            <strong>在满足老板需求的基础上加点私货</strong>，让自己这道坎也过得去。（李提督）<br><br>
+            完全认可你挖掘选题和内容的能力，但并不是完全挪用，而是期待它可以在其他领域复用——这才是初创雇你的真实逻辑。（知之）
+          </div>
+        </div>
+      </div>
+      <div class="callout red" style="margin-top:12px">
+        <div class="callout-icon">&#9888;</div>
+        <div class="callout-content">
+          <div class="c-label">常见陷阱</div>
+          <div class="c-body">软文走了财经新闻路线，下了无数钩子，最后被无知的人看后把钩子删了，全部改成彰显、寓意、Xxx怎么离谱怎么来。领导喜欢。（Fairness晴）<br><br>法务的经典：<strong>以公关指引为指引。</strong>——内容的最终形态，往往不取决于PR的判断，而取决于审稿链路里谁的权力更大。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">入职前的四个关键判断维度</div>
+      <div class="acc">
+        <div class="acc-item">
+          <div class="acc-hd" onclick="toggleAcc(this)">
+            <span class="acc-t">① 组织发展阶段：技术/销售/运营/财务主导？</span>
+            <span class="acc-ic">+</span>
+          </div>
+          <div class="acc-bd">
+            <div class="acc-cnt" style="padding:14px 18px;font-size:13.5px;color:var(--ink2);line-height:1.85">
+              <strong>技术主导</strong>（初创期）→ PR以产品为核心叙事，要能跟技术人对话；<br>
+              <strong>销售主导</strong>（发展期）→ PR服务于商业增长，需要能量化传播对销售漏斗的贡献；<br>
+              <strong>运营主导</strong>（成熟期）→ PR偏品牌护城河，话语权相对稳定；<br>
+              <strong>财务主导</strong>（衰退期）→ 成本压缩优先，PR预算往往最先被砍。
+            </div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-hd" onclick="toggleAcc(this)">
+            <span class="acc-t">② 汇报链路：汇报给谁决定了你做什么</span>
+            <span class="acc-ic">+</span>
+          </div>
+          <div class="acc-bd">
+            <div class="acc-cnt" style="padding:14px 18px;font-size:13.5px;color:var(--ink2);line-height:1.85">
+              <strong>汇报给市场/营销</strong>→ 营销导向，传播效果要能跟ROI挂钩，懂投放逻辑是加分项；<br>
+              <strong>汇报给产品/CTO</strong>→ 产品导向，要懂技术节奏和产品发布逻辑；<br>
+              <strong>汇报给法务/合规</strong>→ 一般是资源型行业或有监管风险的赛道，有to G经验为佳；<br>
+              <strong>汇报给CEO</strong>→ 最直接，但也最考验能否"镇住老板"，建立信任的时间成本高。
+            </div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-hd" onclick="toggleAcc(this)">
+            <span class="acc-t">③ 公司对PR的认知：服务岗还是决策岗？</span>
+            <span class="acc-ic">+</span>
+          </div>
+          <div class="acc-bd">
+            <div class="acc-cnt" style="padding:14px 18px;font-size:13.5px;color:var(--ink2);line-height:1.85">
+              PR在企业里是服务岗位还是有决策权的战略角色，直接决定你能做什么。看财报就很清楚——真正独立的业务财报里存在感很弱。营收太低/隐藏亏损/方便集团内部左右转手，都是PR存在感低的信号。<br><br>
+              面试时可以直接问：在campaign日常工作中，最重要的KPI或成功标准是什么？品牌在全国和中国市场的战略布局是怎样的？希望未来一年内mkt团队最能体现规划能力和高效执行力的工作方式是什么？（Crystal）
+            </div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-hd" onclick="toggleAcc(this)">
+            <span class="acc-t">④ Manager是你的未来+1，关注他看重什么</span>
+            <span class="acc-ic">+</span>
+          </div>
+          <div class="acc-bd">
+            <div class="acc-cnt" style="padding:14px 18px;font-size:13.5px;color:var(--ink2);line-height:1.85">
+              Manager是你的未来+1，比较关键的可能是head实际上在乎的东西。做这个岗位的好处、坏处，从未来来看发展空间。关注40%个人经历，剩余60%都在联席岗位职责。（Crystal &amp; 仅）<br><br>
+              背景调查很重要：注意自己出道出身的问题，背调大概率是算法里的某一个因素，不要传导引导对话方对你的错误印象，要传达你最擅长的信息。（Niko坷）
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">今日头条号：被低估的PR分发渠道</div>
+      <p class="prose">今日头条只是一个发布渠道平台而已，但它在PR中有几个独特价值点，值得专门讨论：</p>
+      <ul class="slist">
+        <li><strong>头条号的SEO价值：</strong>如果做头条号SEO，需要先保一下头条号的权益。很多媒体账号维权是没有媒体账号的，而头条号是不可缺少的。（Luna）</li>
+        <li><strong>头条号与抖音top20的关联：</strong>头条号在抖音top20有时会占2个头条，双重媒体文章价值翻倍，是很高效的覆盖方式。（Luna）</li>
+        <li><strong>IPO期间的头条号管理：</strong>一位群友反映IPO前也需要注意头条号，投资人也会看。没有关注头条号可能是个疏漏。（Luna）</li>
+        <li><strong>平台类媒体联合权：</strong>PR和某媒体联合作权，可以以单独的某号确确地用它的账号的哈。但要注意平台方可能有内部人工审核机制，有合规风险。（Luna）</li>
+      </ul>
+      <div class="callout blue">
+        <div class="callout-icon">&#128240;</div>
+        <div class="callout-content">
+          <div class="c-label">媒体账号策略</div>
+          <div class="c-body">头条号的刊例价一般比百家号要贵。现在在红果也开始出现做free的ro B广告了。如果合作过的媒体把他们矩阵账号的权益用上，能触达到无限期短暂的to B从业人的账号。<strong>对于to B广告call to action步骤</strong>，这类内容传播是对的。（Fairness晴 &amp; Luna）</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">出海初创：政商关系是额外一条线</div>
+      <p class="prose">出海企业在落地国要做政商关系（抱大腿）。各国都有中资企业协会，是商务部下面的自治组织；大使馆和当地政府都需要不停刷脸。这条线与媒体传播是两套完全不同的工作逻辑，最好入职前就问清楚这块谁在负责、预期你承担多少。（李提督）</p>
+      <div class="callout blue">
+        <div class="callout-icon">&#127760;</div>
+        <div class="callout-content">
+          <div class="c-label">出海PR分工提醒</div>
+          <div class="c-body">出口转内销（给国内看的出海故事）和真正的本地传播（面向目标市场用户），是两套完全不同的逻辑，<strong>不可兼得，不能混用</strong>。入职前必须对齐老板对这两件事的优先级认知。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">发稿渠道的真实逻辑：量不等于质</div>
+      <p class="prose">群内案例：某公司被100家不选媒体发稿，费用不菲。流量数据看起来好看，但本质是没有真实流量的小网站参与分布式大网站的SEO优化——<strong>用来做SEO优化，还不上镜。</strong>平台类媒体如今有内部人工审核这类违规黑灰产行为，风险不小。</p>
+      <div class="qr" style="margin-top:16px">
+        <div class="qr-head"><div class="qr-win-dots"><div class="qr-win-dot r"></div><div class="qr-win-dot y"></div><div class="qr-win-dot g"></div></div><div class="qr-head-t">发稿渠道选择原则</div></div>
+        <div class="qr-row"><div class="qr-k">新华网主站</div><div class="qr-v">700–800/篇，权威背书价值高，但站内搜索不太找得到；实际传播价值有限</div></div>
+        <div class="qr-row"><div class="qr-k">凤凰大风号</div><div class="qr-v">几十元，但懂的人一看就知道；给链接是一回事，真实传播是另一回事</div></div>
+        <div class="qr-row"><div class="qr-k">100家分发</div><div class="qr-v">数量看起来好，但这些站点没有真实流量，也没有搜索权重，基本属于刷量</div></div>
+        <div class="qr-row"><div class="qr-k">今日头条号</div><div class="qr-v">保住账号SEO权益；抖音top20有时占2个头条；IPO期间投资人也会看；to B内容分发效率高</div></div>
+        <div class="qr-row"><div class="qr-k">教育PR参考</div><div class="qr-v">猿辅导案例（陈逸伦做），定位重塑打入用户心智；粉笔用过特劳特；服务费较高，张勇当时花了约800W</div></div>
+      </div>
+    </div>
+
+  </div>
+
+ </div>
+</div>
+</div>
+
+<!-- SEARCH MODAL -->
+<div id="search-modal" onclick="closeSearch(event)">
+ <div id="search-box">
+  <div id="search-input-wrap">
+   <span class="s-icon">⌕</span>
+   <input id="search-q" type="text" placeholder="搜索知识库内容…" autocomplete="off" oninput="doSearch(this.value)">
+   <button id="search-close" onclick="closeSearchModal()">✕</button>
+  </div>
+  <div id="search-results"></div>
+  <div id="search-hint">
+   <span><span class="s-hint-key">↑↓</span>选择</span>
+   <span><span class="s-hint-key">↵</span>跳转</span>
+   <span><span class="s-hint-key">Esc</span>关闭</span>
+  </div>
+ </div>
+</div>
+
+<!-- AI OVERLAY -->
+<div id="ai-overlay" onclick="closeAI()"></div>
+
+<!-- AI PANEL -->
+<div id="ai-panel">
+ <div id="ai-panel-head">
+  <div class="ai-head-left">
+   <div class="ai-head-icon">✦</div>
+   <div>
+    <div class="ai-head-title">AI 公关助手</div>
+    <div class="ai-head-sub">基于知识库内容回答</div>
+   </div>
+  </div>
+  <button id="ai-panel-close" onclick="closeAI()">✕</button>
+ </div>
+ <div id="ai-messages">
+  <div class="ai-welcome">
+   <div class="ai-welcome-title">💬 向知识库提问</div>
+   <div class="ai-welcome-body">我已读完全部14章内容，可以帮你解答PR实操问题。试试这些问题：</div>
+   <div class="ai-suggestions">
+    <button class="ai-suggestion" onclick="askQuestion(this.textContent)">记者转PR，最大的认知落差是什么？</button>
+    <button class="ai-suggestion" onclick="askQuestion(this.textContent)">初创公司PR应该先做什么？</button>
+    <button class="ai-suggestion" onclick="askQuestion(this.textContent)">如何衡量PR的KPI和价值？</button>
+    <button class="ai-suggestion" onclick="askQuestion(this.textContent)">怎么镇住外行老板？</button>
+   </div>
+  </div>
+ </div>
+ <div id="ai-input-area">
+  <textarea id="ai-input" placeholder="输入你的问题…" rows="1" onkeydown="aiKeyDown(event)" oninput="autoResize(this)"></textarea>
+  <button id="ai-send" onclick="sendAI()" title="发送">➤</button>
+ </div>
+</div>
+
+<!-- AI FAB BUTTON -->
+<button id="ai-btn" onclick="openAI()">
+ <span class="ai-icon">✦</span> AI 提问
+</button>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const TOPBAR_H = 64;
+const chapters = [...document.querySelectorAll('.chapter')];
+const navLinks = [...document.querySelectorAll('.nav-a')];
+const bcCur = document.getElementById('bc-cur');
+
+const NAMES = {
+  ch1:'媒体关系建立与维护', ch2:'危机公关与负面处理',
+  ch3:'KOL / 艺人合作', ch4:'海外PR与出海传播',
+  ch5:'年度传播规划', ch6:'向上管理与内部协作',
+  ch7:'舆情监测工具', ch8:'新兴议题与行业趋势',
+  ch9:'内容传播与品牌叙事', ch10:'其他实操细节',
+  ch11:'速查表', ch12:'延伸阅读书单',
+  ch13:'记者转PR：身份重建', ch14:'初创公司PR生存指南'
+};
+const CH_IDS = Object.keys(NAMES);
+
+// ── NAV HISTORY (for back button)
+let navHistory = [];
+let currentChId = null;
+
+function scrollToEl(el) {
+  const chapter = el.closest ? el.closest('.chapter') : el;
+  if (chapter) { chapter.classList.add('vis'); chapter.querySelectorAll('.sec').forEach(s=>s.classList.add('sec-vis')); }
+  document.documentElement.style.scrollBehavior = 'auto';
+  const top = el.getBoundingClientRect().top + window.scrollY - TOPBAR_H - 8;
+  window.scrollTo({ top: Math.max(0, top) });
+  requestAnimationFrame(() => { document.documentElement.style.scrollBehavior = ''; });
+}
+
+function goto(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  // Push current position to history
+  if (currentChId && currentChId !== id) {
+    navHistory.push({ id: currentChId, scrollY: window.scrollY });
+    document.getElementById('nav-back').classList.add('show');
+  }
+  el.querySelectorAll('.sec').forEach(s => s.classList.add('sec-vis'));
+  scrollToEl(el);
+}
+
+function navBack() {
+  if (!navHistory.length) return;
+  const prev = navHistory.pop();
+  const el = document.getElementById(prev.id);
+  if (el) {
+    el.querySelectorAll('.sec').forEach(s => s.classList.add('sec-vis'));
+    document.documentElement.style.scrollBehavior = 'auto';
+    window.scrollTo({ top: prev.scrollY });
+    requestAnimationFrame(()=>{ document.documentElement.style.scrollBehavior=''; });
+  }
+  if (!navHistory.length) document.getElementById('nav-back').classList.remove('show');
+}
+
+// ── PROGRESS + BACKTOP
+window.addEventListener('scroll', () => {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  if (max > 0) document.getElementById('prog').style.width = (window.scrollY / max * 100) + '%';
+  document.getElementById('backtop').classList.toggle('show', window.scrollY > 400);
+}, { passive: true });
+
+document.getElementById('backtop').onclick = () => {
+  navHistory = [];
+  document.getElementById('nav-back').classList.remove('show');
+  document.documentElement.style.scrollBehavior = 'auto';
+  window.scrollTo({ top: 0 });
+  requestAnimationFrame(()=>{ document.documentElement.style.scrollBehavior=''; });
+};
+
+// ── ACCORDION
+function toggleAcc(hd) {
+  const bd = hd.nextElementSibling;
+  const isOpen = hd.classList.contains('open');
+  hd.closest('.acc').querySelectorAll('.acc-hd.open').forEach(h => {
+    if (h !== hd) { h.classList.remove('open'); h.nextElementSibling.classList.remove('open'); }
+  });
+  hd.classList.toggle('open', !isOpen);
+  bd.classList.toggle('open', !isOpen);
+}
+
+// ── ACTIVE NAV + breadcrumb
+const navObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      currentChId = id;
+      const idx = CH_IDS.indexOf(id);
+      navLinks.forEach((l, i) => l.classList.toggle('active', i === idx));
+      if (NAMES[id]) bcCur.textContent = NAMES[id];
+    }
+  });
+}, { rootMargin: '-10% 0px -65% 0px' });
+
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('vis'); revObs.unobserve(e.target); }
+  });
+}, { threshold: 0.03 });
+
+chapters.forEach(c => { navObs.observe(c); revObs.observe(c); });
+
+// ── SECTION REVEAL
+const secObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('sec-vis'); secObs.unobserve(e.target); }
+  });
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.sec').forEach(s => secObs.observe(s));
+requestAnimationFrame(() => {
+  document.querySelectorAll('.sec').forEach(s => {
+    if (s.getBoundingClientRect().top < window.innerHeight) s.classList.add('sec-vis');
+  });
+});
+
+// ── BANNER REVEAL
+const bannerObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('anim-in'); bannerObs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.ch-banner').forEach(b => bannerObs.observe(b));
+
+// ── FILTER PILLS
+function setFilter(el, tag) {
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('on'));
+  el.classList.add('on');
+  chapters.forEach(c => {
+    c.style.display = (!tag || (c.dataset.tags||'').includes(tag)) ? '' : 'none';
+  });
+}
+
+// ── STAT COUNTER
+function animateCounter(el, target, duration = 1200) {
+  if (!/^\d+$/.test(target)) return;
+  let start = null; const to = parseInt(target);
+  function step(ts) {
+    if (!start) start = ts;
+    const p = Math.min((ts-start)/duration, 1);
+    el.textContent = Math.floor((1-Math.pow(1-p,3))*to) + '+';
+    if (p < 1) requestAnimationFrame(step); else el.textContent = target + '+';
+  }
+  requestAnimationFrame(step);
+}
+const statObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const numEl = e.target.querySelector('.h-stat-n');
+      if (numEl) { const raw = numEl.textContent.replace(/[^0-9]/g,''); if (raw) animateCounter(numEl, raw); }
+      statObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.8 });
+document.querySelectorAll('.h-stat').forEach(s => statObs.observe(s));
+
+// ── RIPPLE
+document.querySelectorAll('.h-ch-item').forEach(item => {
+  item.addEventListener('click', function(e) {
+    const rect = this.getBoundingClientRect();
+    this.style.setProperty('--rx', ((e.clientX-rect.left)/rect.width*100).toFixed(1)+'%');
+    this.style.setProperty('--ry', ((e.clientY-rect.top)/rect.height*100).toFixed(1)+'%');
+  });
+});
+
+// ─────────────────────────────────────────────────
+// ── SEARCH MODAL
+// ─────────────────────────────────────────────────
+// Build search index from DOM
+const searchIndex = [];
+chapters.forEach(ch => {
+  ch.querySelectorAll('.sec').forEach(sec => {
+    const titleEl = sec.querySelector('.sec-title');
+    if (!titleEl) return;
+    const title = titleEl.textContent.trim();
+    const body = sec.textContent.replace(/\s+/g,' ').trim();
+    searchIndex.push({ chId: ch.id, chName: NAMES[ch.id]||'', title, body, sec, chapter: ch });
+  });
+});
+
+let searchCursor = -1;
+
+function openSearch() {
+  const modal = document.getElementById('search-modal');
+  modal.classList.add('open');
+  const q = document.getElementById('search-q');
+  q.value = '';
+  document.getElementById('search-results').innerHTML = '';
+  searchCursor = -1;
+  setTimeout(() => q.focus(), 50);
+}
+
+function closeSearchModal() {
+  document.getElementById('search-modal').classList.remove('open');
+}
+
+function closeSearch(e) {
+  if (e && e.target !== document.getElementById('search-modal')) return;
+  closeSearchModal();
+}
+
+function doSearch(q) {
+  const results = document.getElementById('search-results');
+  searchCursor = -1;
+  q = q.trim();
+  if (!q) { results.innerHTML = ''; return; }
+  const ql = q.toLowerCase();
+
+  const scored = searchIndex
+    .map(item => {
+      const tl = item.title.toLowerCase(), bl = item.body.toLowerCase();
+      let score = 0;
+      if (tl.includes(ql)) score += tl.startsWith(ql) ? 4 : 2;
+      if (bl.includes(ql)) score += 1;
+      return { item, score };
+    })
+    .filter(x => x.score > 0)
+    .sort((a,b) => b.score - a.score)
+    .slice(0, 10);
+
+  if (!scored.length) {
+    results.innerHTML = '<div class="s-empty">未找到"' + q + '"的相关内容</div>';
+    return;
+  }
+
+  const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  results.innerHTML = scored.map(({item}) => {
+    const titleHl = item.title.replace(new RegExp(`(${esc(q)})`,'gi'),'<mark>$1</mark>');
+    const mp = item.body.toLowerCase().indexOf(ql);
+    let snip = '';
+    if (mp >= 0) {
+      const s=Math.max(0,mp-25), e=Math.min(item.body.length,mp+ql.length+50);
+      snip = (s>0?'…':'')+item.body.slice(s,e)+(e<item.body.length?'…':'');
+      snip = snip.replace(new RegExp(`(${esc(q)})`,'gi'),'<mark>$1</mark>');
+    }
+    return `<div class="s-result" onclick="jumpSearch('${item.chId}','${item.sec.id||''}',this)">
+      <div class="s-result-ch">${item.chName}</div>
+      <div class="s-result-title">${titleHl}</div>
+      ${snip?`<div class="s-result-snip">${snip}</div>`:''}
+    </div>`;
+  }).join('');
+}
+
+function jumpSearch(chId, secId, el) {
+  closeSearchModal();
+  const ch = document.getElementById(chId);
+  if (!ch) return;
+  ch.classList.add('vis');
+  ch.querySelectorAll('.sec').forEach(s=>s.classList.add('sec-vis'));
+  // Find the sec by title match
+  const titleText = el.querySelector('.s-result-title').textContent;
+  let target = ch;
+  ch.querySelectorAll('.sec').forEach(sec => {
+    const t = sec.querySelector('.sec-title');
+    if (t && t.textContent.trim() === titleText.trim()) target = sec;
+  });
+  setTimeout(() => scrollToEl(target), 80);
+}
+
+// Keyboard nav in search
+document.getElementById('search-q').addEventListener('keydown', e => {
+  const items = [...document.querySelectorAll('#search-results .s-result')];
+  if (!items.length) return;
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    items[searchCursor]?.classList.remove('s-active');
+    searchCursor = Math.min(searchCursor+1, items.length-1);
+    items[searchCursor]?.classList.add('s-active');
+    items[searchCursor]?.scrollIntoView({block:'nearest'});
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    items[searchCursor]?.classList.remove('s-active');
+    searchCursor = Math.max(searchCursor-1, 0);
+    items[searchCursor]?.classList.add('s-active');
+    items[searchCursor]?.scrollIntoView({block:'nearest'});
+  } else if (e.key === 'Enter') {
+    e.preventDefault();
+    const t = searchCursor >= 0 ? items[searchCursor] : items[0];
+    t?.click();
+  } else if (e.key === 'Escape') {
+    closeSearchModal();
+  }
+});
+
+// Global ⌘K / Ctrl+K shortcut
+document.addEventListener('keydown', e => {
+  if ((e.metaKey||e.ctrlKey) && e.key === 'k') {
+    e.preventDefault();
+    const modal = document.getElementById('search-modal');
+    if (modal.classList.contains('open')) closeSearchModal();
+    else openSearch();
+  }
+  if (e.key === 'Escape') {
+    closeSearchModal();
+    closeAI();
+  }
+});
+
+// ─────────────────────────────────────────────────
+// ── AI Q&A PANEL
+// ─────────────────────────────────────────────────
+
+// Extract full text content for AI context
+function buildKBContext() {
+  const parts = [];
+  chapters.forEach(ch => {
+    const name = NAMES[ch.id] || ch.id;
+    ch.querySelectorAll('.sec').forEach(sec => {
+      const titleEl = sec.querySelector('.sec-title');
+      const title = titleEl ? titleEl.textContent.trim() : '';
+      // Get clean text without the title
+      const clone = sec.cloneNode(true);
+      const t = clone.querySelector('.sec-title'); if(t) t.remove();
+      const body = clone.textContent.replace(/\s+/g,' ').trim();
+      if (title && body) parts.push(`【${name} - ${title}】\n${body}`);
+    });
+  });
+  return parts.join('\n\n');
+}
+
+let kbContext = null;
+let aiLoading = false;
+const aiMessages = [];
+
+function openAI() {
+  document.getElementById('ai-panel').classList.add('open');
+  document.getElementById('ai-overlay').classList.add('show');
+  document.getElementById('ai-btn').style.display = 'none';
+  if (!kbContext) kbContext = buildKBContext();
+  setTimeout(()=>document.getElementById('ai-input').focus(), 300);
+}
+
+function closeAI() {
+  document.getElementById('ai-panel').classList.remove('open');
+  document.getElementById('ai-overlay').classList.remove('show');
+  document.getElementById('ai-btn').style.display = 'flex';
+}
+
+function autoResize(ta) {
+  ta.style.height = 'auto';
+  ta.style.height = Math.min(ta.scrollHeight, 120) + 'px';
+}
+
+function aiKeyDown(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendAI(); }
+}
+
+function askQuestion(q) {
+  document.getElementById('ai-input').value = q;
+  sendAI();
+}
+
+function appendMsg(role, text) {
+  const msgs = document.getElementById('ai-messages');
+  // Remove welcome card on first message
+  const welcome = msgs.querySelector('.ai-welcome');
+  if (welcome) welcome.remove();
+
+  const div = document.createElement('div');
+  div.className = `ai-msg ${role}`;
+  const bubble = document.createElement('div');
+  bubble.className = 'ai-bubble';
+  if (role === 'bot') {
+    bubble.innerHTML = text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+      .replace(/\n/g,'<br>');
+  } else {
+    bubble.textContent = text;
+  }
+  div.appendChild(bubble);
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+  return bubble;
+}
+
+function showTyping() {
+  const msgs = document.getElementById('ai-messages');
+  const div = document.createElement('div');
+  div.className = 'ai-msg bot';
+  div.id = 'ai-typing-indicator';
+  div.innerHTML = '<div class="ai-typing"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div></div>';
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function removeTyping() {
+  const t = document.getElementById('ai-typing-indicator');
+  if (t) t.remove();
+}
+
+async function sendAI() {
+  const input = document.getElementById('ai-input');
+  const q = input.value.trim();
+  if (!q || aiLoading) return;
+
+  input.value = '';
+  input.style.height = 'auto';
+  document.getElementById('ai-send').disabled = true;
+  aiLoading = true;
+
+  appendMsg('user', q);
+  aiMessages.push({ role: 'user', content: q });
+  showTyping();
+
+  const systemPrompt = `你是一个专业的公关知识助手。以下是一份来自公关从业者交流群的实战知识库，包含14个章节的内容。请基于这份知识库内容回答用户的问题。
+
+回答要求：
+- 使用中文回答
+- 回答要具体、有实操价值，引用知识库中的具体内容和观点
+- 如果知识库中有相关内容，优先引用；如果没有，可以结合行业常识补充
+- 回答简洁，控制在300字以内
+- 可以用**粗体**突出重点
+
+以下是知识库内容：
+${kbContext ? kbContext.slice(0, 18000) : '（知识库加载中）'}`;
+
+  const messages = [
+    ...aiMessages.slice(-6).filter(m => m.role !== 'system'),
+  ];
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 800,
+        system: systemPrompt,
+        messages: messages
+      })
+    });
+    const data = await resp.json();
+    removeTyping();
+    if (data.content && data.content[0]) {
+      const answer = data.content[0].text;
+      appendMsg('bot', answer);
+      aiMessages.push({ role: 'assistant', content: answer });
+    } else {
+      appendMsg('bot', '抱歉，出现了一个错误，请稍后再试。');
+    }
+  } catch(err) {
+    removeTyping();
+    appendMsg('bot', '网络错误，请检查连接后重试。');
+  }
+
+  aiLoading = false;
+  document.getElementById('ai-send').disabled = false;
+  document.getElementById('ai-input').focus();
+}
+
+// ── TYPEWRITER on hero eyebrow
+(function() {
+  const eye = document.querySelector('.h-eye');
+  if (!eye) return;
+  const text = eye.textContent;
+  eye.textContent = '';
+  let i = 0;
+  const timer = setInterval(() => {
+    eye.textContent += text[i++];
+    if (i >= text.length) clearInterval(timer);
+  }, 38);
+})();
+</script>
+</body>
+</html>
